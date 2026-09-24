@@ -17,8 +17,9 @@ const ubuntMono = Ubuntu_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Twilight",
-  description: "Twilight by ECAF",
+  	title: "Twilight",
+	description: "Twilight by ECAF",
+  	icons: "icon.svg"
 };
 
 export default async function RootLayout({
