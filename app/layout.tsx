@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Audiowide, Ubuntu_Mono } from "next/font/google";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale } from "next-intl/server";
 
 const audiowide = Audiowide({
 	weight: "400",
@@ -19,17 +21,21 @@ export const metadata: Metadata = {
   description: "Twilight by ECAF",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+	const locale = await getLocale();
+	
   return (
-    <html
-      lang="en"
+   <html
+      lang={locale}
       className={`${ubuntMono.className} h-full antialiased ${ubuntMono.variable} ${audiowide.variable}`}
-    >
-      <body className="">{children}</body>
-    </html>
+   >
+   	<body className="">
+    		<NextIntlClientProvider>{children}</NextIntlClientProvider>
+   	</body>
+   </html>
   );
 }

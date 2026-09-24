@@ -4,10 +4,24 @@ import Image from "next/image";
 import PrimaryButton from "@/app/components/PrimaryButton";
 import Blur from "@/app/components/Blur";
 import Sparkle from "@/app/components/Sparkle";
+import LangSwitch from "./LangSwitch";
+import { Locale, useTranslations } from "next-intl";
+import { cookies } from "next/headers";
 
 export default function HeroSection() {
+	async function changeLocaleAction(locale: Locale) {
+		"use server";
+		const store = await cookies();
+		store.set("locale", locale)
+	}
+
+	const t = useTranslations("HomePage");
+	
 	return (
 		<div className="h-screen w-screen min-h-175 grid grid-cols-2 grid-rows-2 px-25 py-25 gap-5 relative">
+			<div className="absolute">
+				<LangSwitch changeLocaleAction={changeLocaleAction} />
+			</div>
 			<div className="center">
 				<Image src={logo} alt="" />
 			</div>
@@ -37,7 +51,7 @@ export default function HeroSection() {
 			<Sparkle variant="single" bottom={60} left={50} rotate="-22deg"/>
 			<Sparkle variant="single" top={10} right={50} rotate="30deg"/>
 			<Sparkle variant="single" bottom={50} right={150} rotate="30deg" />
-			<p className="absolute left-[50%] top-2 text-[40px] font-main -translate-x-1/2 text-purple">Welcome</p>
+			<p className="absolute left-[50%] top-2 text-[40px] font-main -translate-x-1/2 text-purple">{t("welcome")}</p>
 		</div>
 	);
 }
