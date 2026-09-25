@@ -45,3 +45,4 @@ bun.lock
 
 # dict
 codebook.toml
+.env*.local
