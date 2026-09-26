@@ -1,5 +1,9 @@
 {
 	"HomePage": {
-		"welcome": "Welcome"
+		"welcome": "Welcome",
+		"hero text": "Twilight is a development competition where creativity, technology, and problem-solving come together. Participants turn their concepts into functional projects and compete by showcasing what they can create from a single topic.",
+		"hero text2": "Competitors receive a unique topic and transform it into their own digital creation using websites, games, and any other technologies they choose.",
+		"signup": "Sign Up",
+		"scroll down for more": "Scroll down for more"
 	}
 }
