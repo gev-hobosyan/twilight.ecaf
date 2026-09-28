@@ -42,7 +42,7 @@ export default async function RootLayout({
       lang={locale}
       className={`${locale == "en" ? ubuntMono.className : davel.className} h-full antialiased ${ubuntMono.variable} ${audiowide.variable} ${davel.variable}`}
    >
-   	<body className="overflow-x-hidden">
+		  <body className="overflow-x-hidden max-w-screen">
     		<NextIntlClientProvider>{children}</NextIntlClientProvider>
    	</body>
    </html>

@@ -8,6 +8,7 @@ import LangSwitch from "./LangSwitch";
 import { Locale, useTranslations } from "next-intl";
 import { cookies } from "next/headers";
 import Link from "next/link";
+import SecondaryButton from "./SecondaryButton";
 
 
 export default function HeroSection() {
@@ -38,13 +39,20 @@ export default function HeroSection() {
 				{t("hero text2")}
 			</div>
 
-			<div className="center flex-row gap-3 md:gap-12.5 max-md:mt-auto max-md:mb-10">
-				<Link href="/sign-up">
-					<PrimaryButton>{t("signup")}</PrimaryButton>
-				</Link>
-				<div className="center flex-col gap-1 translate-y-1/5">
-					<p className="font-bold italic text-[18px] md:text-[20px]">{t("scroll down for more")}</p>
-					<Image src={arrow} alt=""/>
+			<div className="center flex-col gap-3 md:gap-5 max-md:mt-auto max-md:mb-10">
+				<div className="center gap-3 max-md:gap-12.5">
+					<Link href="/sign-up">
+						<PrimaryButton className="hover:-translate-y-2">{t("signup")}</PrimaryButton>
+					</Link>
+					<Link href="/sign-in">
+						<SecondaryButton className="hover:-translate-y-2">{t("signin")}</SecondaryButton>
+					</Link>
+				</div>
+				<div>
+					<div className="center flex-col gap-1 translate-y-1/5 cursor-default">
+						<p className="font-bold italic text-[18px] md:text-[20px]">{t("scroll down for more")}</p>
+						<Image src={arrow} alt=""/>
+					</div>
 				</div>
 			</div>
 
