@@ -12,8 +12,8 @@ export default function SignUp() {
 	
 	return (
 		<div className="h-screen w-screen center relative">
-			<Blur top={10} left={10} />
-			<Blur bottom={20} right={-10} />
+			<Blur top="4%" left="3%" />
+			<Blur bottom="1%" right="3%" />
 
 			<form action={formAction} className="px-8 py-5 bg-black/80 shadow-outside rounded-[20px] ring-offset-0 ring-0 center flex-col w-fit">
 				<p className="font-main text-2xl mb-1">Join us</p>
