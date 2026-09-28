@@ -1,8 +1,8 @@
 interface Props {
-	left?: number,
-	right?: number,
-	top?: number,
-	bottom?: number
+	left?: string,
+	right?: string,
+	top?: string,
+	bottom?: string
 }
 
 export default function Blur(

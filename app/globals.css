@@ -29,6 +29,7 @@
 
   --font-mono: var(--font-ubuntu-mono);
   --font-main: var(--font-audiowide);
+  --font-davel: var(--font-davel);
 
   --shadow-button: var(--button-shadow);
 }

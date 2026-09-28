@@ -11,10 +11,10 @@ const variants = {
 
 interface Props {
 	variant: "double" | "single" | "double_2",
-	top?: number,
-	bottom?: number,
-	left?: number,
-	right?: number,
+	top?: string,
+	bottom?: string,
+	left?: string,
+	right?: string,
 	rotate?: string
 }
 
@@ -27,7 +27,7 @@ export default function Sparkle({
 	rotate
 }: Props) {
 	return (
-		<Image src={variants[variant]} alt="sparkle"
+		<Image src={variants[variant]} alt="sparkle" className="-z-10"
 			style={{
 				position: "absolute",
 				top: top,
