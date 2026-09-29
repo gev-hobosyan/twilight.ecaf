@@ -6,6 +6,7 @@ import Blur from "../components/Blur";
 import Input from "../components/Input";
 import PrimaryButton from "../components/PrimaryButton";
 import Link from "next/link";
+import Loader from "../components/Loader";
 
 export default function SignIn() {
 	const [state, formAction, isPending] = useActionState(signInWithEmail, null);
@@ -24,9 +25,11 @@ export default function SignIn() {
 					<Input label={"Password"} placeholder={""} type="password" id="password" />
 				</div>
 
-				<PrimaryButton>
-					<button className="w-full h-full cursor-pointer" type="submit" disabled={isPending}>Sign in</button>
-				</PrimaryButton>
+				{
+					isPending ? <Loader></Loader> : <PrimaryButton>
+						<button className="w-full h-full cursor-pointer" type="submit" disabled={isPending}>Sign in</button>
+					</PrimaryButton>
+				}
 				<p className="mt-4 text-sm cursor-default">By continuing you agree to our <Link href="/privacy-policy" className="text-purple underline underline-offset-2">Privacy Policy</Link></p>
 				<p className="mt-2 text-sm cursor-default">{"Don't have an account"} <Link href="/sign-up" className="text-purple underline underline-offset-2">Sing up</Link></p>
 			</form>
