@@ -15,7 +15,8 @@ interface Props {
 	bottom?: string,
 	left?: string,
 	right?: string,
-	rotate?: string
+	rotate?: string,
+	className?: string,
 }
 
 export default function Sparkle({
@@ -24,10 +25,11 @@ export default function Sparkle({
 	bottom,
 	left,
 	right,
-	rotate
+	rotate,
+	className
 }: Props) {
 	return (
-		<Image src={variants[variant]} alt="sparkle" className="-z-10"
+		<Image src={variants[variant]} alt="sparkle" className={`-z-10 ${className}`}
 			style={{
 				position: "absolute",
 				top: top,
