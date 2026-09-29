@@ -1,7 +1,7 @@
 'use server';
 
 import { auth } from "@/lib/auth/server";
-import { redirect } from "next/navigation";
+import { redirect, RedirectType } from "next/navigation";
 
 export async function signUpWithEmail(
 	_prevState: { error: string } | null,
@@ -27,5 +27,5 @@ export async function signUpWithEmail(
 
 	console.log(error)
 
-	redirect('/')
+	redirect('/', RedirectType.replace)
 }

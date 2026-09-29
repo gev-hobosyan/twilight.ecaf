@@ -1,22 +1,24 @@
 import { auth } from "@/lib/auth/server";
 import PrimaryButton from "./PrimaryButton";
-import { redirect } from "next/navigation";
+import { redirect, RedirectType } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 export default function SignOut() {
 	const signOut = async () => {
 		'use server';
 		const { error } = await auth.signOut();
 
-		redirect("/");
+		revalidatePath("/")
+		redirect("/", RedirectType.replace);
 	}
 
 	return (
 		<form action={signOut}>
-			<PrimaryButton>
-				<button type="submit">
+			<button type="submit">
+				<PrimaryButton>
 					Sign out
-				</button>
-			</PrimaryButton>
+				</PrimaryButton>
+			</button>
 		</form>
 	)
 }

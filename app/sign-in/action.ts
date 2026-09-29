@@ -1,7 +1,7 @@
 'use server';
 
 import { auth } from "@/lib/auth/server";
-import { redirect } from "next/navigation";
+import { redirect, RedirectType } from "next/navigation";
 
 export async function signInWithEmail(
 	_prevState: { error: string } | null,
@@ -22,5 +22,5 @@ export async function signInWithEmail(
 		return { error: error.message || 'Failed to create an account' }
 	}
 
-	redirect('/')
+	redirect('/', RedirectType.replace)
 }
