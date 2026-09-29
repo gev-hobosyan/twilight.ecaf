@@ -5,6 +5,19 @@
 		"hero text2": "Competitors receive a unique topic and transform it into their own digital creation using websites, games, and any other technologies they choose.",
 		"signup": "Sign Up",
 		"signin": "Sign In",
-		"scroll down for more": "Scroll down for more"
+		"scroll down for more": "Scroll down for more",
+		"text1": "Sign up for Twilight (obviously) before October 16th",
+		"text2": "On October 18th the theme will be released",
+		"text3": "You'll have 2 weeks to make something interesting. The only restriction is the theme and the only limit is your imagination",
+		"text4": "Every day you have to upload a screenshot with the current progress of the project or check the box that no progress was made",
+		"text5": "You submit your project as a zip file or a link to github along with the story card before November 1st 10pm",
+		"text6": "On November 2nd you'll present your projects and we'll choose the winner",
+		"howtoparticipate": "How to participate",
+		"rules": "Rules",
+		"fewrules": "There are just a few rules",
+		"rule1": "Teams can't consist of more than 3 people",
+		"rule2": "Any use of AI must be stated",
+		"rule3": "Don't try to lie about anything",
+		"violationtext": "The violation of any rule will lead to disqualification"
 	}
 }
