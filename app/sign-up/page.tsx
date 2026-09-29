@@ -1,12 +1,12 @@
 'use client';
 
 import { useActionState } from "react";
-import Blur from "../components/Blur";
+import Blur from "../components/decor/Blur";
 import Input from "../components/Input";
-import PrimaryButton from "../components/PrimaryButton";
+import PrimaryButton from "../components/buttons/PrimaryButton";
 import { signUpWithEmail } from "./action";
 import Link from "next/link";
-import Loader from "../components/Loader";
+import Loader from "../components/decor/Loader";
 
 export default function SignUp() {
 	const [state, formAction, isPending] = useActionState(signUpWithEmail, null);

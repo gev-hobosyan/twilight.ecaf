@@ -1,6 +1,6 @@
 import nune from "@/public/nune.png"
 import Image from "next/image"
-import Blur from "./Blur"
+import Blur from "../decor/Blur"
 import blackhole from "@/public/blackhole.jpg"
 
 export default function AboutUs() {

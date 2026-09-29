@@ -2,11 +2,11 @@
 
 import { useActionState } from "react";
 import { signInWithEmail } from "./action";
-import Blur from "../components/Blur";
+import Blur from "../components/decor/Blur";
 import Input from "../components/Input";
-import PrimaryButton from "../components/PrimaryButton";
+import PrimaryButton from "../components/buttons/PrimaryButton";
 import Link from "next/link";
-import Loader from "../components/Loader";
+import Loader from "../components/decor/Loader";
 
 export default function SignIn() {
 	const [state, formAction, isPending] = useActionState(signInWithEmail, null);

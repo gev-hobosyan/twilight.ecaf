@@ -1,11 +1,11 @@
 import { auth } from "@/lib/auth/server";
-import HeroSection from "./components/HeroSection";
+import HeroSection from "./components/sections/HeroSection";
 import coming_soon from "@/public/coming_soon.svg"
-import SignOut from "./components/SignOut";
+import SignOut from "./components/buttons/SignOut";
 import Image from "next/image";
 import { redirect } from "next/navigation";
-import AboutUs from "./components/AboutUs";
-import Rules from "./components/Rules";
+import AboutUs from "./components/sections/AboutUs";
+import Rules from "./components/sections/Rules";
 
 export const dynamic = 'force-dynamic';
 

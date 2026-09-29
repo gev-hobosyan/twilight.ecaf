@@ -1,14 +1,14 @@
 import logo from "@/public/logo.svg";
 import arrow from "@/public/arrow.svg";
 import Image from "next/image";
-import PrimaryButton from "@/app/components/PrimaryButton";
-import Blur from "@/app/components/Blur";
-import Sparkle from "@/app/components/Sparkle";
-import LangSwitch from "./LangSwitch";
+import PrimaryButton from "@/app/components/buttons/PrimaryButton";
+import Blur from "@/app/components/decor/Blur";
+import Sparkle from "@/app/components/decor/Sparkle";
+import LangSwitch from "../buttons/LangSwitch";
 import { Locale, useTranslations } from "next-intl";
 import { cookies } from "next/headers";
 import Link from "next/link";
-import SecondaryButton from "./SecondaryButton";
+import SecondaryButton from "../buttons/SecondaryButton";
 
 
 export default function HeroSection() {

@@ -1,5 +1,5 @@
-import Blur from "./Blur";
-import Rule from "./Rule";
+import Blur from "../decor/Blur";
+import Rule from "../decor/Rule";
 import { useTranslations } from "next-intl";
 
 export default function Rules() {
