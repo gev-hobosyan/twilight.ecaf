@@ -7,6 +7,7 @@ import { redirect } from "next/navigation";
 import AboutUs from "./components/sections/AboutUs";
 import Rules from "./components/sections/Rules";
 import StoryPrize from "./components/sections/StoryPrize";
+import FAQSection from "./components/sections/FAQSection";
 
 export const dynamic = 'force-dynamic';
 
@@ -42,6 +43,8 @@ export default async function Home() {
 			<Rules />
 
 			<StoryPrize />
+
+			<FAQSection />
 			{/*<AboutUs />*/}
 		</>
 	);

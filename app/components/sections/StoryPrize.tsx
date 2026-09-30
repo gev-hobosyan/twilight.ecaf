@@ -30,7 +30,7 @@ export default function StoryPrize() {
 			<div className="center flex-col gap-10">
 				<p className="text-2xl font-main">What do we get if we win?</p>
 
-				<p className="text-[18px] font-bold italic max-w-[90%] text-center">{"You also get a certificate, but this time for wining. Recognition from fellow students and the jury. Also we have a special prize prepared for you by our beloved head of department. But that's a secret for now. ( • ᴗ - )"}</p>
+				<p className="text-[18px] font-bold italic max-w-[90%] text-center">{"You also get a certificate, but this time for wining. Recognition from fellow students and the jury. Also we have a special prize prepared for you by our beloved head of department. But that's a secret for now. (•ᴗ-)"}</p>
 			</div>
 			
 			<div className="center">
