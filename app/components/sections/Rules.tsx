@@ -7,7 +7,7 @@ export default function Rules() {
 	const t = useTranslations("HomePage");
 
 	return (
-		<div className="w-screen h-screen relative inline-block">
+		<div className="w-screen min-h-screen relative inline-block overflow-hidden max-md:py-10">
 			<Blur top="2%"></Blur>
 			<Blur top="-2%" right="1%"></Blur>
 			<Blur bottom="-2%" left="30%"></Blur>
@@ -17,11 +17,11 @@ export default function Rules() {
 			<Sparkle variant="double_2" bottom="1%" left="2%" className="scale-50"/>
 			<Sparkle variant="single" top="2%" right="4%" rotate="-20deg"/>
 
-			<div className="w-full h-full grid grid-cols-2 grid-rows-1">
+			<div className="w-full h-full md:grid grid-cols-2 grid-rows-1">
 				<div className="flex flex-col items-center gap-10">
 					<h1 className="text-3xl font-main text-center mt-10">{t("howtoparticipate")}</h1>
 
-					<div className="bg-black/50 backdrop-blur-4xl rounded-[20px] border-purple border shadow-outside w-[80%] h-[80%] flex items-center justify-center flex-col gap-5">
+					<div className="bg-black/50 backdrop-blur-4xl rounded-[20px] border-purple border shadow-outside w-[80%] h-[80%] flex items-center justify-center flex-col gap-5 py-20 max-md:py-5">
 						<Rule>
 							1. {t("text1")}
 						</Rule>
@@ -48,9 +48,11 @@ export default function Rules() {
 					</div>
 				</div>
 
-				<div className="flex flex-col items-center mt-20 gap-10">
-					<div className="bg-black/50 backdrop-blur-4xl rounded-[20px] border-purple border shadow-outside w-[80%] h-[80%] flex items-center justify-center flex-col gap-5">
-						<div className="font-bold text-2xl">
+				<div className="flex flex-col items-center mt-10 md:mt-20 gap-10">
+					<h1 className="md:hidden text-3xl font-main text-center">{t("rules")}</h1>
+					
+					<div className="bg-black/50 backdrop-blur-4xl rounded-[20px] border-purple border shadow-outside w-[80%] h-[80%] flex items-center justify-center flex-col gap-5 max-md:py-4">
+						<div className="font-bold text-2xl max-md:mx-4 text-center">
 							{t("fewrules")}
 						</div>
 
@@ -66,10 +68,10 @@ export default function Rules() {
 							3. {t("rule3")}
 						</Rule>
 
-						<p className="font-bold italic">{t("violationtext")}</p>
+						<p className="font-bold italic max-md:mx-4 text-center">{t("violationtext")}</p>
 					</div>
 
-					<h1 className="text-3xl font-main text-center">{t("rules")}</h1>
+					<h1 className="max-md:hidden text-3xl font-main text-center">{t("rules")}</h1>
 				</div>
 
 			</div>
