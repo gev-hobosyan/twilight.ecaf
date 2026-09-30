@@ -49,9 +49,9 @@ export default function HeroSection() {
 					</Link>
 				</div>
 				<div>
-					<div className="center flex-col gap-1 translate-y-1/5 cursor-default">
+					<div className="center flex-col gap-2 translate-y-1/5 cursor-default">
 						<p className="font-bold italic text-[18px] md:text-[20px]">{t("scroll down for more")}</p>
-						<Image src={arrow} alt=""/>
+						<Image src={arrow} alt="" className="animate-bounce"/>
 					</div>
 				</div>
 			</div>

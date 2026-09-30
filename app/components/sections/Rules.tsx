@@ -1,6 +1,7 @@
 import Blur from "../decor/Blur";
 import Rule from "../decor/Rule";
 import { useTranslations } from "next-intl";
+import Sparkle from "../decor/Sparkle";
 
 export default function Rules() {
 	const t = useTranslations("HomePage");
@@ -10,6 +11,11 @@ export default function Rules() {
 			<Blur top="2%"></Blur>
 			<Blur top="-2%" right="1%"></Blur>
 			<Blur bottom="-2%" left="30%"></Blur>
+
+			<Sparkle variant="single" bottom="5%" right="-1%" rotate="-20deg" className="-translate-1/2"/>
+			<Sparkle variant="double" top="10%" left="3%" rotate="20deg"/>
+			<Sparkle variant="double_2" bottom="1%" left="2%" className="scale-50"/>
+			<Sparkle variant="single" top="2%" right="4%" rotate="-20deg"/>
 
 			<div className="w-full h-full grid grid-cols-2 grid-rows-1">
 				<div className="flex flex-col items-center gap-10">
@@ -47,7 +53,7 @@ export default function Rules() {
 						<div className="font-bold text-2xl">
 							{t("fewrules")}
 						</div>
-						
+
 						<Rule>
 							1. {t("rule1")}
 						</Rule>
@@ -60,7 +66,7 @@ export default function Rules() {
 							3. {t("rule3")}
 						</Rule>
 
-						<p className="font-bold italic">{t("violationtext")}</p> 
+						<p className="font-bold italic">{t("violationtext")}</p>
 					</div>
 
 					<h1 className="text-3xl font-main text-center">{t("rules")}</h1>
