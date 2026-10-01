@@ -10,7 +10,6 @@ import { cookies } from "next/headers";
 import Link from "next/link";
 import SecondaryButton from "../buttons/SecondaryButton";
 
-
 export default function HeroSection() {
 	async function changeLocaleAction(locale: Locale) {
 		"use server";

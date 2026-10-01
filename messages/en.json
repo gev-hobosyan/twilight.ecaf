@@ -47,5 +47,19 @@
 		"faqtext8": "Just don't make a single HTML file (╥ᴗ╥). Other than that any project you can make.",
 		"faqheading9": "Can we bribe the jury?",
 		"faqtext9": "Well you can try. Just send an email to"
+	},
+	"Sign": {
+		"join": "Join us",
+		"continue": "Let's continue",
+		"ideas": "Bring ideas to life",
+		"email": "Email",
+		"full_name": "Full name",
+		"password": "Password",
+		"sign in": "Sign in",
+		"bycont": "By continuing you agree to our ",
+		"privacypolicy": "Privacy Policy",
+		"signuplink": "Don't have an account",
+		"signinlink": "Already have an account? ",
+		"sign up": "Sign Up"
 	}
 }

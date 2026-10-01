@@ -24,14 +24,14 @@ export default async function Home() {
 	if (session?.user) {
 		return (
 			<>
-				{/*<form action={signOut}>
+				<form action={signOut}>
 					<button type="submit">
 						<div className="center w-screen h-screen">
 							<Image src={coming_soon} alt="coming soon" />
 						</div>
 					</button>
-				</form>*/}
-				<SignOut />
+				</form>
+				{/*<SignOut />*/}
 			</>
 		)
 	}
