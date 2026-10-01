@@ -2,8 +2,11 @@ import certificates from "@/public/certificates.svg"
 import Image from "next/image"
 import Blur from "../decor/Blur"
 import Sparkle from "../decor/Sparkle"
+import { useTranslations } from "next-intl";
 
 export default function StoryPrize() {
+	const t = useTranslations("HomePage");
+	
 	return (
 		<div className="w-screen min-h-screen relative md:grid grid-cols-2 grid-rows-2 overflow-hidden py-5">
 			<Blur top="3%" />
@@ -16,25 +19,25 @@ export default function StoryPrize() {
 			<Sparkle variant="single" top="2%" right="4%" rotate="-20deg"/>
 			
 			<div className="center flex-col gap-5 md:gap-10">
-				<p className="text-2xl font-main">What is a Story Card?</p>
+				<p className="text-2xl font-main">{t("storycardheading")}</p>
 
-				<p className="text-[18px] font-bold italic max-w-[90%] text-center">{"A story card is just a form you'll fill out when submitting your project. It includes the name of your project, your names, a short description, and what you used to build it. And most importantly it includes the story of how you're project came to life, hence the name. Also you can pass some notes to us through it."}</p>
+				<p className="text-[18px] font-bold italic max-w-[90%] text-center">{t("storycardtext")}</p>
 			</div>
 			
 			<div className="center flex-col gap-5 md:gap-10 max-md:mt-10 text-center">
-				<p className="text-2xl font-main">What do we get for participating?</p>
+				<p className="text-2xl font-main">{t("participateheading")}</p>
 
-				<p className="text-[18px] font-bold italic max-w-[90%] text-center">{"Every participant will get a certificate signed by the head of department. But also you gain experience, get to show your skill, and maybe gain new connections. And most importantly you surely will have a lot of fun when it's time to submit the project but nothing is working. ◝(ᵔᗜᵔ)◜"}</p>
+				<p className="text-[18px] font-bold italic max-w-[90%] text-center">{t("participatetext")}</p>
 			</div>
 
 			<div className="center flex-col gap-5 md:gap-10 max-md:mt-10 text-center">
-				<p className="text-2xl font-main">What do we get if we win?</p>
+				<p className="text-2xl font-main">{t("winningheading")}</p>
 
-				<p className="text-[18px] font-bold italic max-w-[90%] text-center">{"You also get a certificate, but this time for wining. Recognition from fellow students and the jury. Also we have a special prize prepared for you by our beloved head of department. But that's a secret for now. (•ᴗ-)"}</p>
+				<p className="text-[18px] font-bold italic max-w-[90%] text-center">{t("winningtext")}</p>
 			</div>
 			
 			<div className="center max-md:mt-10">
-				<Image src={certificates} alt="certificates" className="w-80 md:w-150"/>
+				<Image src={certificates} alt="certificates" className="w-70 md:w-150"/>
 			</div>
 		</div>
 	)

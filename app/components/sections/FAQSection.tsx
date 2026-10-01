@@ -1,7 +1,9 @@
 import Blur from "../decor/Blur";
 import Sparkle from "../decor/Sparkle";
+import { useTranslations } from "next-intl";
 
 export default function FAQSection() {
+	const t = useTranslations("HomePage");
 	return (
 		<div className="w-screen min-h-screen relative overflow-hidden max-md:pb-10">
 			<Blur top="2%"></Blur>
@@ -19,65 +21,65 @@ export default function FAQSection() {
 				<div className="flex justify-center flex-col items-center">
 					<div className="md:w-[80%] md:h-[80%] md:bg-black/50 md:border md:border-purple md:rounded-2xl md:shadow-outside flex items-center flex-col md:py-8 justify-around max-md:gap-5">
 						<div className="w-[90%] min-h-24 bg-light-dark rounded-2xl border border-purple shadow-inset px-4 flex justify-center flex-col">
-							<p className="font-bold text-[18px]">Is it free?</p>
-							<p className="italic text-sm">{"Yes, it's completely free. Our goal is to give you a chance to show off your incredible skills. And you'll get a prize if you win."}</p>
+							<p className="font-bold text-[18px]">{t("isitfree")}</p>
+							<p className="italic text-sm">{t("isitfreetext")}</p>
 						</div>
 
 						<div className="w-[90%] min-h-24 bg-light-dark rounded-2xl border border-purple shadow-inset px-4 flex justify-center flex-col">
-							<p className="font-bold text-[18px]">Do we make a website or a game?</p>
-							<p className="italic text-sm">{"You can make anything as long as it involves writing code. You can make a website, a game, a console app. But it has to suit the theme."}</p>
+							<p className="font-bold text-[18px]">{t("faqheading1")}</p>
+							<p className="italic text-sm">{t("faqtext1")}</p>
 						</div>
 
 						<div className="w-[90%] min-h-24 bg-light-dark rounded-2xl border border-purple shadow-inset px-4 flex justify-center flex-col">
-							<p className="font-bold text-[18px]">How do we participate?</p>
-							<p className="italic text-sm">{"Just sign up clicking the button on the top. Fill out your name and email. Please don't forget the password you'll need it later."}</p>
+							<p className="font-bold text-[18px]">{t("faqheading2")}</p>
+							<p className="italic text-sm">{t("faqtext2")}</p>
 						</div>
 
 						<div className="w-[90%] min-h-24 bg-light-dark rounded-2xl border border-purple shadow-inset px-4 flex justify-center flex-col">
-							<p className="font-bold text-[18px]">How can we participate as a team?</p>
-							<p className="italic text-sm">All of you have to sign up. Then one of you will add the team members in the dashboard, when doing that fill out the exact full name your teammate has entered while signing up.</p>
+							<p className="font-bold text-[18px]">{t("faqheading3")}</p>
+							<p className="italic text-sm">{t("faqtext3")}</p>
 						</div>
 
 						<div className="w-[90%] min-h-30 bg-light-dark rounded-2xl border border-purple shadow-inset px-4 flex justify-center flex-col">
-							<p className="font-bold text-[18px]">Who chooses the winner?</p>
-							<p className="italic text-sm">A jury formed from the teachers of our department will listen to your presentations on Nov 1st and at the end of the event choose 3 winners. The jury also will take into account your Story Card and the source code of your project.</p>
+							<p className="font-bold text-[18px]">{t("faqheading4")}</p>
+							<p className="italic text-sm">{t("faqtext4")}</p>
 						</div>
 
 
 					</div>
 
 					<h2 className="mt-10 italic max-md:hidden">
-						Be sure to ask any other question by this email <span className="text-[18px] font-bold underline underline-offset-1">twilight.ecaf@gmail.com</span>
+						{t("questionpart")} <span className="text-[18px] font-bold underline underline-offset-1">twilight.ecaf@gmail.com</span>
 					</h2>
 
 				</div>
 
 				<div className="flex justify-center flex-col items-center">
-					<h1 className="text-3xl font-main max-md:hidden">FAQs</h1>
+					<h1 className="text-3xl font-main max-md:hidden">{t("faqs")}</h1>
 					<div className="md:w-[80%] md:h-[80%] md:bg-black/50 md:border md:border-purple md:rounded-2xl md:shadow-outside flex items-center flex-col md:py-8 justify-around md:mt-10 max-md:gap-5">
 						<div className="w-[90%] min-h-30 bg-light-dark rounded-2xl border border-purple shadow-inset px-4 flex justify-center flex-col">
-							<p className="font-bold text-[18px]">What is the theme?</p>
-							<p className="italic text-sm">{"The theme will be released on Oct 18th. We'll choose a theme to give you as much freedom as possible, while also making it a bit challenging and fun. So don't expect it to be something like fantasy or landing."}</p>
+							<p className="font-bold text-[18px]">{t("faqheading5")}</p>
+							<p className="italic text-sm">{t("faqtext5")}</p>
 						</div>
 
 						<div className="w-[90%] min-h-24 bg-light-dark rounded-2xl border border-purple shadow-inset px-4 flex justify-center flex-col">
-							<p className="font-bold text-[18px]">Can we use AI?</p>
-							<p className="italic text-sm">{"We don't restrict the use of AI. But, as stated in the rules, it mast be stated in your Story Card. If you try to hide it, you will be disqualified"}</p>
+							<p className="font-bold text-[18px]">{t("faqheading6")}</p>
+							<p className="italic text-sm">{t("faqtext6")}</p>
 						</div>
 
 						<div className="w-[90%] min-h-30 bg-light-dark rounded-2xl border border-purple shadow-inset px-4 flex justify-center flex-col">
-							<p className="font-bold text-[18px]">How do present our project?</p>
-							<p className="italic text-sm">You submit the source code of your project on Nov 1st. The next day you will get about 5 minutes to tell us about your project and show how it works. It is highly encouraged to practice your presentation, because a bad presentation can ruin even the best project.</p>
+							<p className="font-bold text-[18px]">{t("faqheading7")}</p>
+							<p className="italic text-sm">{t("faqtext7")}</p>
 						</div>
 
 						<div className="w-[90%] min-h-24 bg-light-dark rounded-2xl border border-purple shadow-inset px-4 flex justify-center flex-col">
-							<p className="font-bold text-[18px]">How complex must our project be?</p>
-							<p className="italic text-sm">{"Just don't make a single HTML file (╥ᴗ╥). Other than that any project you can make."}</p>
+							<p className="font-bold text-[18px]">{t("faqheading8")}</p>
+							<p className="italic text-sm">{t("faqtext8")}</p>
 						</div>
 
 						<div className="w-[90%] min-h-20 bg-light-dark rounded-2xl border border-purple shadow-inset px-4 flex justify-center flex-col">
-							<p className="font-bold text-[18px]">Can we bribe the jury?</p>
-							<p className="italic text-sm">Well you can try. Just send an email to <span className="underline underline-offset-3">very.honest.jury@gmail.com</span></p>
+							<p className="font-bold text-[18px]">{t("faqheading9")}</p>
+							<p className="italic text-sm">{t("faqtext9")} <span className="underline underline-offset-3">very.honest.jury@gmail.com</span></p>
 						</div>
 					</div>
 				</div>
