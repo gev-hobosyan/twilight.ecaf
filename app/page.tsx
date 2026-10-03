@@ -4,10 +4,10 @@ import coming_soon from "@/public/coming_soon.svg"
 import SignOut from "./components/buttons/SignOut";
 import Image from "next/image";
 import { redirect } from "next/navigation";
-import AboutUs from "./components/sections/AboutUs";
 import Rules from "./components/sections/Rules";
 import StoryPrize from "./components/sections/StoryPrize";
 import FAQSection from "./components/sections/FAQSection";
+import Dashboard from "./components/sections/Dashboard";
 
 export const dynamic = 'force-dynamic';
 
@@ -24,13 +24,15 @@ export default async function Home() {
 	if (session?.user) {
 		return (
 			<>
-				<form action={signOut}>
+				<Dashboard />
+				
+				{/*<form action={signOut}>
 					<button type="submit">
 						<div className="center w-screen h-screen">
 							<Image src={coming_soon} alt="coming soon" />
 						</div>
 					</button>
-				</form>
+				</form>*/}
 				{/*<SignOut />*/}
 			</>
 		)
