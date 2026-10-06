@@ -4,6 +4,7 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntel = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
+	reactStrictMode: false
   /* config options here */
 };
 

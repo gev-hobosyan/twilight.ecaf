@@ -25,7 +25,5 @@ export async function signUpWithEmail(
 		return { error: error.message || 'Failed to create an account' }
 	}
 
-	console.log(error)
-
 	redirect('/', RedirectType.replace)
 }

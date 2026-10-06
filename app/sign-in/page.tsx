@@ -13,7 +13,7 @@ export default function SignIn() {
 	const [state, formAction, isPending] = useActionState(signInWithEmail, null);
 
 	const t = useTranslations("Sign");
-	
+
 	return (
 		<div className="h-screen w-screen center relative">
 			<Blur top="4%" left="3%" />
@@ -24,8 +24,14 @@ export default function SignIn() {
 				<p className="mb-8 text-sm">{t("ideas")}</p>
 
 				<div className="flex flex-col gap-3 mb-10">
-					<Input label={t("email")} placeholder={"username@email.com"} type="email" id="email" />
-					<Input label={t("password")} placeholder={""} type="password" id="password" />
+					<Input label={t("email")} placeholder={"username@email.com"} type="email" id="email" error={state !== null} />
+					<Input label={t("password")} placeholder={""} type="password" id="password" error={state !== null} />
+
+					{
+						state !== null && (
+							<p className="text-sm text-mono italic text-red-700 text-center">{state.error}</p>
+						)
+					}
 				</div>
 
 				{

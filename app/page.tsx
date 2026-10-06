@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 import Rules from "./components/sections/Rules";
 import StoryPrize from "./components/sections/StoryPrize";
 import FAQSection from "./components/sections/FAQSection";
-import Dashboard from "./components/sections/Dashboard";
+import Dashboard from "./dashboard/Dashboard";
 
 export const dynamic = 'force-dynamic';
 

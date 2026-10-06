@@ -2,6 +2,10 @@
 
 *:focus {
 	outline: 0;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none; 
 }
 
 :root {
@@ -18,6 +22,8 @@
   --loading-grad: radial-gradient(farthest-side, #9D4EDD 94%, #11001C) top/8px 8px no-repeat, conic-gradient(#11001C 30%, #9D4EDD);
   
   --inset-shadow: inset 0 0 10px 2px var(--light-purple);
+  --shadow-error: inset 0 0 10px 2px red;
+  
   --outside-shadow: 0 0 20px 1px var(--light-purple);
 }
 
@@ -39,6 +45,7 @@
 
   --shadow-inset: var(--inset-shadow);
   --shadow-outside: var(--outside-shadow);
+  --shadow-error: var(--shadow-error);
 }
 
 .center {
