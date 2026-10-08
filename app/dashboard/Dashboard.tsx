@@ -8,6 +8,7 @@ import Image from "next/image";
 import { connection } from "next/server";
 import { getTeam } from "../actions/getTeam";
 import PrimaryButton from "../components/buttons/PrimaryButton";
+import Link from "next/link";
 
 export const dynamic = 'force-dynamic';
 
@@ -24,14 +25,14 @@ export default async function Dashboard() {
 	const team = await getTeam(session.user.id);
 	
 	return (
-		<div className="w-screen h-screen grid grid-cols-5 grid-rows-5 relative overflow-hidden">
+		<div className="w-screen h-screen flex flex-col max-lg:gap-10 lg:grid lg:grid-cols-5 lg:grid-rows-5 relative overflow-x-hidden lg:overflow-hidden max-lg:py-15">
 			<Blur top="10%" left="2%"></Blur>
 			<Blur bottom="-8%" right="-10%"></Blur>
 
 			<Sparkle variant="double" top="5%" left="4%" className="scale-80" rotate="-15deg" />
 			<Sparkle variant="single" top="5%" right="5%" className="scale-90" rotate="13deg" />
 
-			<div className="row-span-1 col-span-5 center font-main text-4xl text-purple text-center flex-col">
+			<div className="row-span-1 col-span-5 center font-main text-4xl text-purple text-center flex-col max-lg:bg-black/40 max-lg:backdrop-blur-md">
 				Welcome back<span className="text-light-purple">{session.user.name.split(" ")[0]}</span>
 			</div>
 
@@ -94,7 +95,7 @@ export default async function Dashboard() {
 				</div>
 			</div>
 
-			<div className="row-span-2 col-span-3 w-[96%] h-[90%] bg-black/50 m-auto border border-purple rounded-2xl shadow-outside flex flex-col items-center justify-between py-4">
+			<div className="row-span-2 col-span-3 w-[90%] lg:w-[96%] h-[90%] bg-black/50 m-auto border border-purple rounded-2xl shadow-outside flex flex-col items-center justify-between py-4">
 				<p className="font-main text-2xl text-purple">Your progress</p>
 				<div className="m-auto text-center max-w-70">
 					{
@@ -112,7 +113,9 @@ export default async function Dashboard() {
 				<div className="m-auto">
 					<p className="font-main mb-5">Ask us any questions here</p>
 
-					<PrimaryButton>Contact us</PrimaryButton>
+					<Link href="/contact-us">
+						<PrimaryButton>Contact us</PrimaryButton>
+					</Link>
 				</div>
 			</div>
 		</div>
