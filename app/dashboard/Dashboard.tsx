@@ -6,7 +6,6 @@ import coming_soon from "@/public/coming_soon.svg"
 import user_icon from "@/public/user_icon.svg"
 import Image from "next/image";
 import { connection } from "next/server";
-import { SignOut } from "@neondatabase/auth/react";
 import { getTeam } from "../actions/getTeam";
 import PrimaryButton from "../components/buttons/PrimaryButton";
 
