@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Blur from "../decor/Blur";
 import Sparkle from "../decor/Sparkle";
 import { useTranslations } from "next-intl";
@@ -48,10 +49,14 @@ export default function FAQSection() {
 
 					</div>
 
-					<h2 className="mt-10 italic max-md:hidden">
-						{t("questionpart")} <span className="text-[18px] font-bold underline underline-offset-1">twilight.ecaf@gmail.com</span>
-					</h2>
-
+					<div className="mt-10 italic max-md:hidden gap-1 flex items-center">
+						{t("questionpart")}
+						<Link href={"contact-us"}>
+							<span className="text-[18px] font-bold underline underline-offset-1">
+								{t("here")}
+							</span>
+						</Link>
+					</div>
 				</div>
 
 				<div className="flex justify-center flex-col items-center">
@@ -83,6 +88,15 @@ export default function FAQSection() {
 						</div>
 					</div>
 				</div>
+			</div>
+
+			<div className="mt-10 italic md:hidden gap-1 flex items-center justify-center text-center w-full">
+				{t("questionpart")}
+				<Link href={"contact-us"}>
+					<span className="text-[18px] font-bold underline underline-offset-1">
+						{t("here")}
+					</span>
+				</Link>
 			</div>
 		</div>
 	)

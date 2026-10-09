@@ -22,7 +22,24 @@ export async function contactUs(
 	try {
 		const { data: session } = await auth.getSession();
 		if (session == null) {
-			return { error: "User not found" };
+			const tg = formData.get('tg') as string;
+			const email = formData.get('email') as string;
+
+			if (tg == null && email == null) {
+				return { error: "Email or telegram are required" };	
+			} 
+
+			const res = await axios.post(`${process.env.BACKEND_BASE_URL!}support/anonymous`, {
+				message: message,
+				email: email,
+				telegram: tg
+			});
+
+			if (res.status == 500) {
+				return { error: res.request["message"] }
+			}
+	
+			return { message: "Ticket created" }
 		}
 		
 		const res = await axios.post(`${process.env.BACKEND_BASE_URL!}support`, {
@@ -38,11 +55,8 @@ export async function contactUs(
 
 		return { message: "Ticket created" }
 	} catch (e) {
-		console.log(e)
 		return { error: 'Failed to send the message' };
 	} finally {
-		// redirect('/', RedirectType.replace)	
+		// redirect('/', RedirectType.replace)
 	}
-
-	return { message: "Pass" }
 }
