@@ -33,7 +33,7 @@ export default async function Home() {
 						</div>
 					</button>
 				</form>*/}
-				<SignOut />
+				{/*<SignOut />*/}
 			</>
 		)
 	}
