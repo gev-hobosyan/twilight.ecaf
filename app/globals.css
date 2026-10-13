@@ -80,3 +80,10 @@ body {
   background: var(--background);
   color: var(--text-color);
 }
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

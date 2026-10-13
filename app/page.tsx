@@ -22,6 +22,10 @@ export default async function Home() {
 	}
 
 	if (session?.user) {
+		if (session.user.role === "admin") {
+			// return redirect("/admin");
+		}
+		
 		return (
 			<>
 				<Dashboard />

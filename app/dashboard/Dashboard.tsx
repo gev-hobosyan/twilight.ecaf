@@ -9,21 +9,24 @@ import { connection } from "next/server";
 import { getTeam } from "../actions/getTeam";
 import PrimaryButton from "../components/buttons/PrimaryButton";
 import Link from "next/link";
+import TimeLeft from "../components/decor/TimeLeft";
 
 export const dynamic = 'force-dynamic';
 
 export default async function Dashboard() {
 	const { data: session } = await auth.getSession();
 
-	await connection();
-	const date = new Date();
-
 	if (session == null) {
 		return <></>;
 	}
 
 	const team = await getTeam(session.user.id);
-	
+
+	await connection();
+	const date = new Date();
+
+	console.log(date.getDate())
+
 	return (
 		<div className="w-screen h-screen flex flex-col max-lg:gap-10 lg:grid lg:grid-cols-5 lg:grid-rows-5 relative overflow-x-hidden lg:overflow-hidden max-lg:py-15">
 			<Blur top="10%" left="2%"></Blur>
@@ -62,7 +65,7 @@ export default async function Dashboard() {
 							<p className="font-mono font-bold text-[18px]">{"Looks like you're a solo dev"}</p>
 
 							{
-								date.getMonth() == 9 && date.getDate() < 18 &&
+								(date.getMonth() == 9 || date.getMonth() == 10) && date.getDate() < 18 &&
 								<div className="center flex-col gap-0.5">
 									<p className="font-mono font-bold text-sm">
 										Or you can create a team
@@ -79,14 +82,14 @@ export default async function Dashboard() {
 
 			<div className="row-span-2 w-[90%] h-[90%] bg-black/50 m-auto border border-purple rounded-2xl shadow-outside flex flex-col items-center py-4">
 				<p className="font-main text-xl text-purple">The theme</p>
-				<Image src={coming_soon} alt="coming_soon" className="scale-80 mt-10" />
+				<TimeLeft />
 			</div>
 
 			<div className="row-span-2 col-span-2 w-[90%] h-[90%] bg-black/50 m-auto border border-purple rounded-2xl shadow-outside flex flex-col items-center py-4">
 				<p className="font-main text-2xl text-purple">Project</p>
 				<div className="m-auto text-center max-w-70">
 					{
-						date.getMonth() === 10 && date.getDate() > 17 ? (
+						date.getDate() > 17 ? (
 							<p></p>
 						): (
 							<p className="font-main">Projects will be available after the theme is revealed</p>
@@ -99,11 +102,11 @@ export default async function Dashboard() {
 				<p className="font-main text-2xl text-purple">Your progress</p>
 				<div className="m-auto text-center max-w-70">
 					{
-						date.getMonth() == 10 && date.getDate() > 17 ? (
-							<p></p>
-						): (
-							<p className="font-main">Project progress will be available after the theme is revealed</p>
-						)
+						// date.getMonth() == 10 && date.getDate() > 17 ? (
+						// 	<p></p>
+						// ): (
+						// 	<p className="font-main">Project progress will be available after the theme is revealed</p>
+						// )
 					}
 				</div>
 			</div>
