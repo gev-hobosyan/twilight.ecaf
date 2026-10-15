@@ -14,8 +14,6 @@ export default function SignUp() {
 
 	const t = useTranslations("Sign");
 
-	console.log(state)
-
 	return (
 		<div className="h-screen w-screen center relative">
 			<Blur top="4%" left="3%" />

@@ -8,8 +8,6 @@ export async function signUpWithEmail(
 	formData: FormData
 ) {
 	const email = formData.get('email') as string;
-
-	console.log(email)
 	
 	if (!email) {
 		return { error: "Email address must be provided." };

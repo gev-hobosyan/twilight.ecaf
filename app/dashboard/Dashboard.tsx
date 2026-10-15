@@ -24,9 +24,7 @@ export default async function Dashboard() {
 
 	await connection();
 	const date = new Date();
-
-	console.log(date.getDate())
-
+	
 	return (
 		<div className="w-screen h-screen flex flex-col max-lg:gap-10 lg:grid lg:grid-cols-5 lg:grid-rows-5 relative overflow-x-hidden lg:overflow-hidden max-lg:py-15">
 			<Blur top="10%" left="2%"></Blur>
@@ -70,7 +68,9 @@ export default async function Dashboard() {
 									<p className="font-mono font-bold text-sm">
 										Or you can create a team
 									</p>
-									<p className="font-mono font-bold text-2xl cursor-pointer transition-all hover:scale-130 duration-200">+</p>
+									<Link href="/create-team">
+										<p className="font-mono font-bold text-2xl cursor-pointer transition-all hover:scale-130 duration-200">+</p>
+									</Link>
 								</div>
 							}
 						</div>

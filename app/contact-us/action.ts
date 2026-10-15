@@ -57,6 +57,6 @@ export async function contactUs(
 	} catch (e) {
 		return { error: 'Failed to send the message' };
 	} finally {
-		// redirect('/', RedirectType.replace)
+		redirect('/', RedirectType.replace)
 	}
 }
