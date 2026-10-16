@@ -10,6 +10,7 @@ import axios from "axios";
 import { FormState } from "../contact-us/action";
 import { createTeam } from "./action";
 import { redirect, RedirectType } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 type AuthType = StripEmptyObjects<{
     id: string;
@@ -45,6 +46,8 @@ export default function CreateTeam() {
 		status: "none",
 		message: ""
 	});
+
+	const t = useTranslations("CreateTeam");
 
 	const addMember = async (name: string) => {
 		setPending(true)
@@ -156,23 +159,23 @@ export default function CreateTeam() {
 											async (formData: FormData) => {
 												await addMember(formData.get("username") as string)
 										}}>
-											<p className="font-main text-2xl mb-1">Add a teammate</p>
-											<p className="text-sm">{"It's always funnier"}</p>
-											<p className="mb-8 text-sm">to build with a friend</p>
+											<p className="font-main text-2xl mb-1">{t("add_teammate")}</p>
+											<p className="text-sm">{t("funnier")}</p>
+											<p className="mb-8 text-sm">{t("build")}</p>
 
-											<Input label="Teammate's full name" type="text" id="username" required={true} placeholder="" error={memberStatus.status == "error"} />
+											<Input label={t("full_name")} type="text" id="username" required={true} placeholder="" error={memberStatus.status == "error"} />
 											{
 												<label className="text-xs max-w-80 text-center mt-2 text-red-400" htmlFor="username">{memberStatus.message}</label>
 											}
 
-											<label className="text-xs max-w-80 text-center mt-2" htmlFor="username">{"Please enter your teammate's full name that they entered when signing up"}</label>
+											<label className="text-xs max-w-80 text-center mt-2" htmlFor="username">{t("please_enter")}</label>
 
 											{
 												pending ? <Loader></Loader>
 													: (
 													<button className="cursor-pointer mt-10" type="submit">
 														<PrimaryButton>
-															Add
+															{t("add")}
 														</PrimaryButton>
 													</button>
 												)
@@ -200,14 +203,14 @@ export default function CreateTeam() {
 										redirect("/", RedirectType.replace)
 									}
 							}}>
-								<p className="font-main text-2xl mb-1">Create your team</p>
-								<p className="text-sm">Add your friends</p>
-								<p className="mb-8 text-sm">Have fun <span className="line-through">suffer</span> together</p>
+								<p className="font-main text-2xl mb-1">{t("create_your_team")}</p>
+								<p className="text-sm">{t("friends")}</p>
+								<p className="mb-8 text-sm">{t("have_fun")}<span className="line-through">{t("suffer")}</span> {t("together")}</p>
 
 								<div className="flex flex-col gap-3 mb-10">
-									<Input label="Team name" type="text" id="name" placeholder={""} required={true} error={status.status == "error"} />
+									<Input label={t("team_name")} type="text" id="name" placeholder={""} required={true} error={status.status == "error"} />
 									<div className="flex flex-col">
-										<p className="ml-2">Team members</p>
+										<p className="ml-2">{t("team_members")}</p>
 										<div className={`w-fit h-fit min-w-100 px-4 py-4 border-0 rounded-2xl text-base font-bold field-sizing-content resize-none flex gap-2 ${status.status == "error" ? "shadow-error" : "shadow-inset"}`}>
 											{members.map((member) => (
 												<div className={`min-w-20 min-h-20 w-fit border  rounded-2xl center relative ${status.status == "error" ? "shadow-[0_0_10px_#ff0000] border-red-700" : "shadow-[0_0_10px_#7B2CBF] border-purple"}`} key={member.id}>
@@ -236,7 +239,7 @@ export default function CreateTeam() {
 								{
 									pending ? <Loader></Loader> :
 									<PrimaryButton>
-										<button className="w-full h-full cursor-pointer" type="submit">Create</button>
+										<button className="w-full h-full cursor-pointer" type="submit">{t("create")}</button>
 									</PrimaryButton>
 								}
 							</form>

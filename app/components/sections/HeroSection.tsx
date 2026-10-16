@@ -11,19 +11,10 @@ import Link from "next/link";
 import SecondaryButton from "../buttons/SecondaryButton";
 
 export default function HeroSection() {
-	async function changeLocaleAction(locale: Locale) {
-		"use server";
-		const store = await cookies();
-		store.set("locale", locale)
-	}
-
 	const t = useTranslations("HomePage");
 	
 	return (
 		<div className="h-screen w-screen md:min-h-175 md:grid md:grid-cols-2 md:grid-rows-2 py-6 md:px-25 md:py-25 gap-5 max-md:flex max-md:items-center max-md:flex-col md:relative overflow-x-hidden relative">
-			<div className="absolute left-2 top-1">
-				<LangSwitch changeLocaleAction={changeLocaleAction} />
-			</div>
 			<p className="md:absolute md:left-[50%] md:top-2 text-[28px] md:text-[40px] font-main md:-translate-x-1/2 text-purple">{t("welcome")}</p>
 			
 			<div className="center max-md:w-70 -translate-x-2">

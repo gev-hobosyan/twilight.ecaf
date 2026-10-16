@@ -62,5 +62,59 @@
 		"signuplink": "Don't have an account",
 		"signinlink": "Already have an account? ",
 		"sign up": "Sign Up"
+	},
+	"ContactUs": {
+		"contact_us": "Contact us",
+		"have_questions": "Have any questions or problems?",
+		"feel_free": "Feel free to ask",
+		"allow_us": "This will allow us to contact you more easily but is not required",
+		"email": "Email",
+		"email_or_tg": "Email or Telegram is required to answer your questions",
+		"message": "Message",
+		"send": "Send"
+	},
+	"CreateTeam": {
+		"add_teammate": "Add a teammate",
+		"funnier": "It's always funnier",
+		"build": "to build with a friend",
+		"full_name": "Teammate's full name",
+		"please_enter": "Please enter your teammate's full name that they entered when signing up",
+		"add": "Add",
+		"create_your_team": "Create your team",
+		"friends": "Add your friends",
+		"have_fun": "Have fun ",
+		"suffer": "suffer",
+		"together": "together",
+		"team_name": "Team name",
+		"team_members": "Team members",
+		"create": "Create"
+	},
+	"CreateProject": {
+		"create_project": "Create your project",
+		"create_your_project": "Create your project",
+		"lock_in": "And lock in",
+		"name": "Project name",
+		"name_enough": "Just the name is enough for now",
+		"rest": "The rest you will fill out when submitting",
+		"create": "Create"
+	},
+	"Dashboard": {
+		"welcome": "Welcome back",
+		"team": "Your Team",
+		"solo": "Looks like you're a solo dev",
+		"create": "Or you can create a team",
+		"theme": "The theme",
+		"project": "Project",
+		"ends": "Until hackathon ends",
+		"submit": "Submit",
+		"time_has_come": "The time has come",
+		"start": "Now you can start your project",
+		"create_btn": "Create",
+		"project_available": "Projects will be available after the theme is revealed",
+		"progress": "Your progress",
+		"progress_available": "Project progress will be available after the theme is revealed",
+		"contact_devs": "Contact the devs",
+		"ask": "Ask us any questions here",
+		"contact": "Contact us"
 	}
 }

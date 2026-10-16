@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Audiowide, Ubuntu_Mono } from "next/font/google";
-import { NextIntlClientProvider } from "next-intl";
+import { Locale, NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
 import localFont from "next/font/local";
+import LangSwitch from "./components/buttons/LangSwitch";
+import { cookies } from "next/headers";
 
 const audiowide = Audiowide({
 	subsets: ["latin"],
@@ -36,6 +38,12 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
 	const locale = await getLocale();
+
+	async function changeLocaleAction(locale: Locale) {
+		"use server";
+		const store = await cookies();
+		store.set("locale", locale)
+	}
 	
   return (
    <html
@@ -43,7 +51,12 @@ export default async function RootLayout({
       className={`${locale == "en" ? ubuntMono.className : davel.className} h-full antialiased ${ubuntMono.variable} ${audiowide.variable} ${davel.variable}`}
    >
 		  <body className="overflow-x-hidden max-w-screen">
-    		<NextIntlClientProvider>{children}</NextIntlClientProvider>
+			  <NextIntlClientProvider>
+					<div className="fixed left-2 top-1 z-50">
+						<LangSwitch changeLocaleAction={changeLocaleAction} />
+					</div>
+					{children}
+			  </NextIntlClientProvider>
    	</body>
    </html>
   );

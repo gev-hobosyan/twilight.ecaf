@@ -8,6 +8,7 @@ import { authClient } from "@/lib/auth/client";
 import Loader from "../components/decor/Loader";
 import { redirect, RedirectType } from "next/navigation";
 import { createProject } from "./action";
+import { useTranslations } from "next-intl";
 
 type AuthType = StripEmptyObjects<{
     id: string;
@@ -43,6 +44,8 @@ export default function CreateProject() {
 		})
 	}, [])
 
+	const t = useTranslations("CreateProject");
+
 	return (
 		<div className="w-screen h-screen center">
 			{
@@ -71,23 +74,23 @@ export default function CreateProject() {
 
 									setPending(false);
 							}}>
-								<p className="font-main text-2xl mb-1">Create your project</p>
-								<p className="text-sm">Create your project</p>
-								<p className="mb-8 text-sm">And lock in</p>
+								<p className="font-main text-2xl mb-1">{t("create_project")}</p>
+								<p className="text-sm">{t("create_your_project")}</p>
+								<p className="mb-8 text-sm">{t("lock_in")}</p>
 
 								<div className="flex flex-col gap-3 mb-10">
-									<Input label="Project name" type="text" id="name" placeholder={""} required={true} error={status.status == "error"} />
+									<Input label={t("name")} type="text" id="name" placeholder={""} required={true} error={status.status == "error"} />
 									<p className="text-xs text-red-600 text-center">
 										{status.message}
 									</p>
-									<label className="text-xs text-center">Just the name is enough for now</label>
-									<label className="text-xs text-center -mt-3">The rest you will fill out when submitting</label>
+									<label className="text-xs text-center">{t("name_enough")}</label>
+									<label className="text-xs text-center -mt-3">{t("rest")}</label>
 								</div>
 								
 								{
 									pending ? <Loader></Loader> :
 									<PrimaryButton>
-										<button className="w-full h-full cursor-pointer" type="submit">Create</button>
+											<button className="w-full h-full cursor-pointer" type="submit">{t("create")}</button>
 									</PrimaryButton>
 								}
 							</form>

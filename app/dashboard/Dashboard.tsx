@@ -10,6 +10,7 @@ import PrimaryButton from "../components/buttons/PrimaryButton";
 import Link from "next/link";
 import TimeLeft from "../components/decor/TimeLeft";
 import { getProject } from "../actions/getProject";
+import { getTranslations } from "next-intl/server";
 
 export const dynamic = 'force-dynamic';
 
@@ -23,6 +24,8 @@ export default async function Dashboard() {
 	const team = await getTeam(session.user.id);
 	const project = await getProject(session.user.id);
 
+	const t = await getTranslations('Dashboard');
+	
 	await connection();
 	const date = new Date();
 	
@@ -35,11 +38,11 @@ export default async function Dashboard() {
 			<Sparkle variant="single" top="5%" right="5%" className="scale-90" rotate="13deg" />
 
 			<div className="row-span-1 col-span-5 center font-main text-4xl text-purple text-center flex-col max-lg:bg-black/40 max-lg:backdrop-blur-md">
-				Welcome back<span className="text-light-purple">{session.user.name.split(" ")[0]}</span>
+				{t("welcome")}<span className="text-light-purple">{session.user.name.split(" ")[0]}</span>
 			</div>
 
 			<div className="row-span-2 col-span-2 w-[90%] h-[90%] bg-black/50 m-auto border border-purple rounded-2xl shadow-outside flex flex-col items-center py-4">
-				<p className="font-main text-2xl text-purple">Your Team</p>
+				<p className="font-main text-2xl text-purple">{t("team")}</p>
 				{
 					team ? (
 						<div className="text-center flex flex-col items-center h-full w-full mt-4">
@@ -61,13 +64,13 @@ export default async function Dashboard() {
 					: (
 						<div className="m-auto flex flex-col items-center justify-center">
 							<Image src={solo} alt="solo" className="w-20 translate-x-1" />
-							<p className="font-mono font-bold text-[18px] mt-3">{"Looks like you're a solo dev"}</p>
+							<p className="font-mono font-bold text-[18px] mt-3">{t("solo")}</p>
 
 							{
 								(date.getMonth() == 9 || date.getMonth() == 10) && date.getDate() < 18 &&
 								<div className="center flex-col gap-0.5">
 									<p className="font-mono font-bold text-sm">
-										Or you can create a team
+										{t("create")}
 									</p>
 									<Link href="/create-team">
 										<p className="font-mono font-bold text-2xl cursor-pointer transition-all hover:scale-130 duration-200">+</p>
@@ -80,12 +83,12 @@ export default async function Dashboard() {
 			</div>
 
 			<div className="row-span-2 w-[90%] h-[90%] bg-black/50 m-auto border border-purple rounded-2xl shadow-outside flex flex-col items-center py-4">
-				<p className="font-main text-xl text-purple">The theme</p>
+				<p className="font-main text-xl text-purple">{t("theme")}</p>
 				<TimeLeft />
 			</div>
 
 			<div className="row-span-2 col-span-2 w-[90%] h-[90%] bg-black/50 m-auto border border-purple rounded-2xl shadow-outside flex flex-col items-center py-4">
-				<p className="font-main text-2xl text-purple">Project</p>
+				<p className="font-main text-2xl text-purple">{t("project")}</p>
 				<div className="m-auto text-center max-w-70">
 					{
 						date.getDate() < 17 ? (
@@ -95,19 +98,19 @@ export default async function Dashboard() {
 										<div className="h-full w-full">
 											<p className="font-main">{project.name}</p>
 											<div className="my-5">
-												<TimeLeft date="November 1, 2026 20:00:00" text="Until hackathon ends" />
+												<TimeLeft date="November 1, 2026 20:00:00" text={t("ends")} />
 											</div>
 											<Link href="/">
-												<PrimaryButton>Submit</PrimaryButton>
+												<PrimaryButton>{t("submit")}</PrimaryButton>
 											</Link>
 										</div>
 									) : (
 										<>
-											<p>The time has come</p>
-											<p>Now you can start your project</p>
+											<p>{t("time_has_come")}</p>
+											<p>{t("start")}</p>
 											<Link href={"/create-project"}>
 												<PrimaryButton className="mt-4">
-													Create
+													{t("create_btn")}
 												</PrimaryButton>
 											</Link>
 										</>
@@ -115,32 +118,32 @@ export default async function Dashboard() {
 								}
 							</>
 						): (
-							<p className="font-main">Projects will be available after the theme is revealed</p>
+							<p className="font-main">{t("project_available")}</p>
 						)
 					}
 				</div>
 			</div>
 
 			<div className="row-span-2 col-span-3 w-[90%] lg:w-[96%] h-[90%] bg-black/50 m-auto border border-purple rounded-2xl shadow-outside flex flex-col items-center justify-between py-4">
-				<p className="font-main text-2xl text-purple">Your progress</p>
+				<p className="font-main text-2xl text-purple">{t("progress")}</p>
 				<div className="m-auto text-center max-w-70">
 					{
 						date.getMonth() == 10 && date.getDate() > 17 ? (
 							<p></p>
 						): (
-							<p className="font-main">Project progress will be available after the theme is revealed</p>
+							<p className="font-main">{t("progress_available")}</p>
 						)
 					}
 				</div>
 			</div>
 
 			<div className="row-span-2 col-span-2 w-[90%] h-[90%] bg-black/50 m-auto border border-purple rounded-2xl shadow-outside flex flex-col items-center justify-between py-4">
-				<p className="font-main text-2xl text-purple">Contact the devs</p>
+				<p className="font-main text-2xl text-purple">{t("contact_devs")}</p>
 				<div className="m-auto">
-					<p className="font-main mb-5">Ask us any questions here</p>
+					<p className="font-main mb-5">{t("ask")}</p>
 
 					<Link href="/contact-us">
-						<PrimaryButton>Contact us</PrimaryButton>
+						<PrimaryButton>{t("contact")}</PrimaryButton>
 					</Link>
 				</div>
 			</div>
