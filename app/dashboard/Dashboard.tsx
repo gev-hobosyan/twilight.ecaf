@@ -10,6 +10,7 @@ import { getTeam } from "../actions/getTeam";
 import PrimaryButton from "../components/buttons/PrimaryButton";
 import Link from "next/link";
 import TimeLeft from "../components/decor/TimeLeft";
+import { getProject } from "../actions/getProject";
 
 export const dynamic = 'force-dynamic';
 
@@ -21,6 +22,7 @@ export default async function Dashboard() {
 	}
 
 	const team = await getTeam(session.user.id);
+	const project = await getProject(session.user.id);
 
 	await connection();
 	const date = new Date();
@@ -60,7 +62,7 @@ export default async function Dashboard() {
 					: (
 						<div className="m-auto flex flex-col items-center justify-center">
 							<Image src={solo} alt="solo" className="w-20 translate-x-1" />
-							<p className="font-mono font-bold text-[18px]">{"Looks like you're a solo dev"}</p>
+							<p className="font-mono font-bold text-[18px] mt-3">{"Looks like you're a solo dev"}</p>
 
 							{
 								(date.getMonth() == 9 || date.getMonth() == 10) && date.getDate() < 18 &&
@@ -90,7 +92,25 @@ export default async function Dashboard() {
 				<div className="m-auto text-center max-w-70">
 					{
 						date.getDate() > 17 ? (
-							<p></p>
+							<>
+								{
+									project ? (
+										<>
+											<p>{project.name}</p>
+										</>
+									) : (
+										<>
+											<p>The time has come</p>
+											<p>Now you can start your project</p>
+											<Link href={"/create-project"}>
+												<PrimaryButton className="mt-4">
+													Create
+												</PrimaryButton>
+											</Link>
+										</>
+									)
+								}
+							</>
 						): (
 							<p className="font-main">Projects will be available after the theme is revealed</p>
 						)
@@ -102,11 +122,11 @@ export default async function Dashboard() {
 				<p className="font-main text-2xl text-purple">Your progress</p>
 				<div className="m-auto text-center max-w-70">
 					{
-						// date.getMonth() == 10 && date.getDate() > 17 ? (
-						// 	<p></p>
-						// ): (
-						// 	<p className="font-main">Project progress will be available after the theme is revealed</p>
-						// )
+						date.getMonth() == 10 && date.getDate() > 17 ? (
+							<p></p>
+						): (
+							<p className="font-main">Project progress will be available after the theme is revealed</p>
+						)
 					}
 				</div>
 			</div>

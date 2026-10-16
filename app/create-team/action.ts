@@ -1,8 +1,6 @@
 'use server';
 
 import axios from "axios";
-import { redirect, RedirectType } from "next/navigation";
-import { User } from "../dataTypes";
 
 export type Response =
   | { error: string; message?: never }
@@ -22,16 +20,14 @@ export async function createTeam(
 			name,
 			members
 		});
-
-		console.log(res)
-
+		
 		if (res.status == 500) {
 			return { error: res.request["message"] }
 		} else if (res.status == 201) {
 			return { message: "Team created" }
 		}
 
-		return { message: "Ticket created" }
+		return { message: "" }
 	} catch (e) {
 		console.log(e)
 		return { error: 'Failed to send the message' };
