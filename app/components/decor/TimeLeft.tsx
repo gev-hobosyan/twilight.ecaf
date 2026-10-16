@@ -2,10 +2,15 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-export default function TimeLeft() {
+interface Props {
+	date?: string,
+	text?: string
+}
+
+export default function TimeLeft({ date = "October 18, 2026 18:00:00", text = "Until theme reveal"  }: Props) {
 	const [difference, setDifference] = useState(0);
 
-	const theme_release = useMemo(() => new Date("October 18, 2026 18:00:00"), []);
+	const theme_release = useMemo(() => new Date(date), [date]);
 
 	const minutes = useMemo(() => Math.floor(difference / 60000), [difference]);
   	const hours = useMemo(() => Math.floor(minutes / 60), [minutes]);
@@ -35,7 +40,7 @@ export default function TimeLeft() {
 	return (
 		<>
 			<p className="font-main text-2xl mt mt-auto">{days < 10 ? `0${days}` : days}:{hours % 24 < 10 ? `0${hours % 24}`: hours % 24}:{minutes % 60 < 10 ? `0${minutes % 60}` : minutes % 60}</p>
-			<p className="mb-auto">Until theme reveal</p>
+			<p className="mb-auto">{text}</p>
 		</>
 	)
 }

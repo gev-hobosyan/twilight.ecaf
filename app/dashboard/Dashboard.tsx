@@ -2,7 +2,6 @@ import { auth } from "@/lib/auth/server"
 import Blur from "../components/decor/Blur";
 import Sparkle from "../components/decor/Sparkle";
 import solo from "@/public/solo.svg"
-import coming_soon from "@/public/coming_soon.svg"
 import user_icon from "@/public/user_icon.svg"
 import Image from "next/image";
 import { connection } from "next/server";
@@ -78,8 +77,6 @@ export default async function Dashboard() {
 						</div>
 					)
 				}
-
-				{/*<Image src={coming_soon} alt="coming_soon" className="scale-60" />*/}
 			</div>
 
 			<div className="row-span-2 w-[90%] h-[90%] bg-black/50 m-auto border border-purple rounded-2xl shadow-outside flex flex-col items-center py-4">
@@ -91,13 +88,19 @@ export default async function Dashboard() {
 				<p className="font-main text-2xl text-purple">Project</p>
 				<div className="m-auto text-center max-w-70">
 					{
-						date.getDate() > 17 ? (
+						date.getDate() < 17 ? (
 							<>
 								{
 									project ? (
-										<>
-											<p>{project.name}</p>
-										</>
+										<div className="h-full w-full">
+											<p className="font-main">{project.name}</p>
+											<div className="my-5">
+												<TimeLeft date="November 1, 2026 20:00:00" text="Until hackathon ends" />
+											</div>
+											<Link href="/">
+												<PrimaryButton>Submit</PrimaryButton>
+											</Link>
+										</div>
 									) : (
 										<>
 											<p>The time has come</p>

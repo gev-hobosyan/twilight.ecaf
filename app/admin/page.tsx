@@ -2,7 +2,7 @@ import { auth } from "@/lib/auth/server";
 import Sparkle from "../components/decor/Sparkle";
 import Blur from "../components/decor/Blur";
 import { getUsersAdmin } from "../actions/getUsersAdmin";
-import { Team, User } from "../dataTypes";
+import type { Team, User } from "../dataTypes";
 import { getTeamsAdmin } from "../actions/getTeamsAdmin";
 import { connection } from "next/server";
 import { redirect, RedirectType } from "next/navigation";

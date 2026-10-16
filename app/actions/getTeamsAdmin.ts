@@ -1,7 +1,7 @@
 'use server'
 
 import axios from "axios"
-import { Team } from "../dataTypes";
+import type { Team } from "../dataTypes";
 
 export const getTeamsAdmin = async (role: string | null | undefined) => {
 	try {

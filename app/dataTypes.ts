@@ -12,3 +12,14 @@ export type User = {
 	project?: number,
 	team?: number
 }
+
+export type Project = {
+	id: string, 
+	name: string,
+	description: string
+	story: string,
+	useAI: boolean,
+	techStack: string,
+	notes?: string,
+	owner?: string
+}
