@@ -200,9 +200,9 @@ export default function CreateTeam() {
 										redirect("/", RedirectType.replace)
 									}
 							}}>
-								<p className="font-main text-2xl mb-1">Contact us</p>
-								<p className="text-sm">Have any questions or problems?</p>
-								<p className="mb-8 text-sm">Feel free to ask</p>
+								<p className="font-main text-2xl mb-1">Create your team</p>
+								<p className="text-sm">Add your friends</p>
+								<p className="mb-8 text-sm">Have fun <span className="line-through">suffer</span> together</p>
 
 								<div className="flex flex-col gap-3 mb-10">
 									<Input label="Team name" type="text" id="name" placeholder={""} required={true} error={status.status == "error"} />
@@ -236,7 +236,7 @@ export default function CreateTeam() {
 								{
 									pending ? <Loader></Loader> :
 									<PrimaryButton>
-										<button className="w-full h-full cursor-pointer" type="submit">Send</button>
+										<button className="w-full h-full cursor-pointer" type="submit">Create</button>
 									</PrimaryButton>
 								}
 							</form>
