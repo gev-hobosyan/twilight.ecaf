@@ -116,5 +116,9 @@
 		"contact_devs": "Contact the devs",
 		"ask": "Ask us any questions here",
 		"contact": "Contact us"
+	},
+	"Theme": {
+		"theme": "Deep dive into mythology",
+		"start": "Start making the project of your dreams"
 	}
 }

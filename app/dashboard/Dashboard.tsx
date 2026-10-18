@@ -11,6 +11,7 @@ import Link from "next/link";
 import TimeLeft from "../components/decor/TimeLeft";
 import { getProject } from "../actions/getProject";
 import { getTranslations } from "next-intl/server";
+import TheTheme from "../components/decor/TheTheme";
 
 export const dynamic = 'force-dynamic';
 
@@ -84,14 +85,14 @@ export default async function Dashboard() {
 
 			<div className="row-span-2 w-[90%] h-[90%] bg-black/50 m-auto border border-purple rounded-2xl shadow-outside flex flex-col items-center py-4">
 				<p className="font-main text-xl text-purple">{t("theme")}</p>
-				<TimeLeft />
+				<TheTheme></TheTheme>
 			</div>
 
 			<div className="row-span-2 col-span-2 w-[90%] h-[90%] bg-black/50 m-auto border border-purple rounded-2xl shadow-outside flex flex-col items-center py-4">
 				<p className="font-main text-2xl text-purple">{t("project")}</p>
 				<div className="m-auto text-center max-w-70">
 					{
-						date.getDate() < 17 ? (
+						date.getDate() > 17 && date.getHours() >= 18 ? (
 							<>
 								{
 									project ? (
