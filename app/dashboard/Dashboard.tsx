@@ -67,7 +67,7 @@ export default async function Dashboard() {
 							<p className="font-mono font-bold text-[18px] mt-3">{t("solo")}</p>
 
 							{
-								(date.getMonth() == 9 || date.getMonth() == 10) && date.getDate() < 18 &&
+								(date.getMonth() == 9 || date.getMonth() == 10) && date.getDate() <= 18 &&
 								<div className="center flex-col gap-0.5">
 									<p className="font-mono font-bold text-sm">
 										{t("create")}
