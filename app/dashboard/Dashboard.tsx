@@ -110,6 +110,7 @@ export default async function Dashboard() {
 							</>
 						)
 					}
+				</div>
 			</div>
 
 			<div className="row-span-2 col-span-3 w-[90%] lg:w-[96%] h-[90%] bg-black/50 m-auto border border-purple rounded-2xl shadow-outside flex flex-col items-center justify-between py-4">
