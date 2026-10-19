@@ -66,18 +66,14 @@ export default async function Dashboard() {
 						<div className="m-auto flex flex-col items-center justify-center">
 							<Image src={solo} alt="solo" className="w-20 translate-x-1" />
 							<p className="font-mono font-bold text-[18px] mt-3">{t("solo")}</p>
-
-							{
-								(date.getMonth() == 9 || date.getMonth() == 10) && date.getDate() <= 18 &&
-								<div className="center flex-col gap-0.5">
-									<p className="font-mono font-bold text-sm">
-										{t("create")}
-									</p>
-									<Link href="/create-team">
-										<p className="font-mono font-bold text-2xl cursor-pointer transition-all hover:scale-130 duration-200">+</p>
-									</Link>
-								</div>
-							}
+							<div className="center flex-col gap-0.5">
+								<p className="font-mono font-bold text-sm">
+									{t("create")}
+								</p>
+								<Link href="/create-team">
+									<p className="font-mono font-bold text-2xl cursor-pointer transition-all hover:scale-130 duration-200">+</p>
+								</Link>
+							</div>
 						</div>
 					)
 				}
@@ -92,45 +88,38 @@ export default async function Dashboard() {
 				<p className="font-main text-2xl text-purple">{t("project")}</p>
 				<div className="m-auto text-center max-w-70">
 					{
-						date.getDate() > 17 && date.getHours() >= 18 ? (
+						project ? (
+							<div className="h-full w-full">
+								<p className="font-main">{project.name}</p>
+								<div className="my-5">
+									<TimeLeft date="November 1, 2026 20:00:00" text={t("ends")} />
+								</div>
+								<Link href="/">
+									<PrimaryButton>{t("submit")}</PrimaryButton>
+								</Link>
+							</div>
+						) : (
 							<>
-								{
-									project ? (
-										<div className="h-full w-full">
-											<p className="font-main">{project.name}</p>
-											<div className="my-5">
-												<TimeLeft date="November 1, 2026 20:00:00" text={t("ends")} />
-											</div>
-											<Link href="/">
-												<PrimaryButton>{t("submit")}</PrimaryButton>
-											</Link>
-										</div>
-									) : (
-										<>
-											<p>{t("time_has_come")}</p>
-											<p>{t("start")}</p>
-											<Link href={"/create-project"}>
-												<PrimaryButton className="mt-4">
-													{t("create_btn")}
-												</PrimaryButton>
-											</Link>
-										</>
-									)
-								}
+								<p>{t("time_has_come")}</p>
+								<p>{t("start")}</p>
+								<Link href={"/create-project"}>
+									<PrimaryButton className="mt-4">
+										{t("create_btn")}
+									</PrimaryButton>
+								</Link>
 							</>
-						): (
-							<p className="font-main">{t("project_available")}</p>
 						)
 					}
-				</div>
 			</div>
 
 			<div className="row-span-2 col-span-3 w-[90%] lg:w-[96%] h-[90%] bg-black/50 m-auto border border-purple rounded-2xl shadow-outside flex flex-col items-center justify-between py-4">
 				<p className="font-main text-2xl text-purple">{t("progress")}</p>
 				<div className="m-auto text-center max-w-70">
 					{
-						date.getMonth() == 10 && date.getDate() > 17 ? (
-							<p></p>
+						date.getDate() > 17 ? (
+							<p className="font-main">
+								Technical issues, will be fixed soon
+							</p>
 						): (
 							<p className="font-main">{t("progress_available")}</p>
 						)

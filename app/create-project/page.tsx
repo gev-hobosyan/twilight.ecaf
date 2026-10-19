@@ -9,6 +9,7 @@ import Loader from "../components/decor/Loader";
 import { redirect, RedirectType } from "next/navigation";
 import { createProject } from "./action";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/router";
 
 type AuthType = StripEmptyObjects<{
     id: string;
@@ -33,6 +34,7 @@ export default function CreateProject() {
 		status: "none",
 		message: ""
 	});
+	const router = useRouter();
 
 	useEffect(() => {
 		authClient.getSession().then(res => {
@@ -69,7 +71,7 @@ export default function CreateProject() {
 											message: res.message
 										})
 
-										redirect("/", RedirectType.replace)
+										router.replace("/")
 									}
 
 									setPending(false);
@@ -86,7 +88,7 @@ export default function CreateProject() {
 									<label className="text-xs text-center">{t("name_enough")}</label>
 									<label className="text-xs text-center -mt-3">{t("rest")}</label>
 								</div>
-								
+
 								{
 									pending ? <Loader></Loader> :
 									<PrimaryButton>

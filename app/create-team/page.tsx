@@ -9,8 +9,9 @@ import Loader from "../components/decor/Loader";
 import axios from "axios";
 import { FormState } from "../contact-us/action";
 import { createTeam } from "./action";
-import { redirect, RedirectType } from "next/navigation";
+import { redirect, RedirectType, useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { navigate } from "next/dist/client/components/segment-cache/navigation";
 
 type AuthType = StripEmptyObjects<{
     id: string;
@@ -46,6 +47,7 @@ export default function CreateTeam() {
 		status: "none",
 		message: ""
 	});
+	const router = useRouter();
 
 	const t = useTranslations("CreateTeam");
 
@@ -200,7 +202,7 @@ export default function CreateTeam() {
 											message: res.message
 										})
 
-										redirect("/", RedirectType.replace)
+										router.replace("/")
 									}
 							}}>
 								<p className="font-main text-2xl mb-1">{t("create_your_team")}</p>
