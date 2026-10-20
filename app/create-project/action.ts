@@ -1,6 +1,8 @@
 'use server';
 
 import axios from "axios";
+import { isRedirectError } from "next/dist/client/components/redirect-error";
+import { redirect } from "next/navigation";
 
 export type Response =
   | { error: string; message?: never }
@@ -29,9 +31,11 @@ export async function createProject(
 			return { message: "Project created" }
 		}
 
+		redirect("/", "replace")
+
 		return { message: "" }
 	} catch (e) {
-		console.log(e)
+		if (isRedirectError(e)) throw e
 		return { error: 'Failed to send the message' };
 	}
 }

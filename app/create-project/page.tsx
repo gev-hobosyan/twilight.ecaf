@@ -6,10 +6,9 @@ import Input from "../components/Input"
 import type { StripEmptyObjects } from "@neondatabase/auth/types";
 import { authClient } from "@/lib/auth/client";
 import Loader from "../components/decor/Loader";
-import { redirect, RedirectType } from "next/navigation";
+import { redirect, RedirectType, useRouter } from "next/navigation";
 import { createProject } from "./action";
 import { useTranslations } from "next-intl";
-import { useRouter } from "next/router";
 
 type AuthType = StripEmptyObjects<{
     id: string;

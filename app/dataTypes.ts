@@ -1,3 +1,5 @@
+import { StripEmptyObjects } from "@neondatabase/auth/types"
+
 export type Team = {
 	id: number,
 	name: string,
@@ -23,3 +25,18 @@ export type Project = {
 	notes?: string,
 	owner?: string
 }
+
+export type AuthType = StripEmptyObjects<{
+    id: string;
+    createdAt: Date;
+    updatedAt: Date;
+    userId: string;
+    expiresAt: Date;
+    token: string;
+    ipAddress?: string | null | undefined;
+    userAgent?: string | null | undefined;
+} & {} & {
+    impersonatedBy?: string | null | undefined;
+} & {} & {
+    activeOrganizationId?: string | null | undefined;
+}>

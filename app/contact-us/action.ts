@@ -1,7 +1,8 @@
 'use server';
 
 import { auth } from "@/lib/auth/server";
-import axios from "axios";
+import axios, { AxiosError, isAxiosError } from "axios";
+import { isRedirectError } from "next/dist/client/components/redirect-error";
 import { redirect, RedirectType } from "next/navigation";
 
 export type FormState = 
@@ -53,10 +54,15 @@ export async function contactUs(
 			return { error: res.request["message"] }
 		}
 
+		redirect('/', RedirectType.replace)
+
 		return { message: "Ticket created" }
 	} catch (e) {
+		if (isRedirectError(e)) throw e
+		// if (isAxiosError(e)) {
+
+		// }
+		
 		return { error: 'Failed to send the message' };
-	} finally {
-		redirect('/', RedirectType.replace)
 	}
 }
