@@ -120,5 +120,17 @@
 	"Theme": {
 		"theme": "Deep dive into mythology",
 		"start": "Start making the project of your dreams"
+	},
+	"RegisterProgress": {
+		"track": "Track your progress",
+		"value": "We value the process",
+		"few_words": "Write a few words about what you did today",
+		"image": "And just one image so we can see what you made",
+		"send": "Send"
+	},
+	"ImageUpload": {
+		"click": "Click to upload",
+		"or": "OR",
+		"drop": "Drop the image here"
 	}
 }

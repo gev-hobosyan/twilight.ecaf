@@ -5,6 +5,7 @@ import { Dispatch, SetStateAction, useState } from "react"
 import Image from "next/image";
 import uploadFile from "../utils/file";
 import { AuthType } from "../dataTypes";
+import { useTranslations } from "next-intl";
 
 interface Props {
 	session: AuthType,
@@ -16,6 +17,8 @@ interface Props {
 export default function ImageUpload({ session, file, setFile, error }: Props) {
 	const [fileEnter, setFileEnter] = useState(false);
 	const date = new Date();
+
+	const t = useTranslations("ImageUpload");
 
 	return (
 		<div>
@@ -58,9 +61,9 @@ export default function ImageUpload({ session, file, setFile, error }: Props) {
 							}}
 						>
 							<Image src={ error ? "/upload_error.svg" : "/upload.svg" } alt="upload" width={48} height={48}></Image>
-							<label htmlFor="file">Click to upload</label>
-							<label htmlFor="file">OR</label>
-							<label htmlFor="file">Drop the image here</label>
+							<label htmlFor="file">{t("click")}</label>
+							<label htmlFor="file">{t("or")}</label>
+							<label htmlFor="file">{t("drop")}</label>
 							<input
 								id="file"
 								type="file"

@@ -38,9 +38,7 @@ export default function AddProgress() {
 		message: ""
 	});
 
-	const router = useRouter();
-
-	const t = useTranslations("CreateProject");
+	const t = useTranslations("RegisterProgress");
 
 	const date = new Date();
 
@@ -105,15 +103,15 @@ export default function AddProgress() {
 					: (
 						<>
 							<form className="px-8 py-5 max-md:w-full max-md:h-full max-md:bg-black/40 max-md:shadow-inset md:bg-black/80 md:shadow-outside md:rounded-[20px] ring-offset-0 ring-0 center flex-col w-fit" action={action}>
-								<p className="font-main text-2xl mb-1">{"Track your progress"}</p>
-								<p className="text-sm mb-8">{"We value the process"}</p>
+								<p className="font-main text-2xl mb-1">{t("track")}</p>
+								<p className="text-sm mb-8">{t("value")}</p>
 
 								<div className="flex flex-col gap-3 mb-5">
 									<div className="flex flex-col mb-3">
-										<label className={`ml-2 ${status.status == "error" && "text-red-500"}`} htmlFor="description">{"Write a few words about what you did today"}</label>
+										<label className={`ml-2 ${status.status == "error" && "text-red-500"}`} htmlFor="description">{t("few_words")}</label>
 										<textarea id="description" name="description" className={`h-fit min-w-full min-h-40 px-4 py-3 border-0 rounded-2xl text-base font-bold overflow-y-scroll resize-none ${status.status == "error" ? "shadow-error" : "shadow-inset"}`} required={true} />
 									</div>
-									<p className={`text-center -mb-3 ${status.status == "error" && "text-red-500"}`}>And just one image so we can see what you made</p>
+									<p className={`text-center -mb-3 ${status.status == "error" && "text-red-500"}`}>{t("image")}</p>
 									<ImageUpload session={session!} file={file} setFile={setFile} error={ status.status == "error"} />
 
 									<p className="text-xs text-center text-red-500">{status.message}</p>
@@ -123,7 +121,7 @@ export default function AddProgress() {
 								{
 									pending ? <Loader></Loader> :
 									<PrimaryButton>
-											<button className="w-full h-full cursor-pointer" type="submit">{"Send"}</button>
+											<button className="w-full h-full cursor-pointer" type="submit">{t("send")}</button>
 									</PrimaryButton>
 								}
 							</form>
