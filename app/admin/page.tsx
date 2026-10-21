@@ -7,6 +7,7 @@ import { getTeamsAdmin } from "../actions/getTeamsAdmin";
 import { connection } from "next/server";
 import { redirect, RedirectType } from "next/navigation";
 import TimeLeft from "../components/decor/TimeLeft";
+import GetPDF from "./components/GetPDF";
 
 export const dynamic = 'force-dynamic';
 
@@ -27,7 +28,7 @@ export default async function Admin() {
 	await connection();
 	const date = new Date();
 
-	const theme_release = new Date("October 18, 2026 18:00:00");
+	const theme_release = new Date("November 1, 2026 20:00:00");
 
 	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 	// @ts-expect-error
@@ -79,11 +80,14 @@ export default async function Admin() {
 
 			<div className="row-span-1 col-span-1 col-start-3 w-[90%] h-[90%] bg-black/50 m-auto border border-purple rounded-2xl shadow-outside flex flex-col items-center py-2">
 				<p className="font-main text-xl text-purple">Time left</p>
-				<TimeLeft />
+				<TimeLeft date="November 1, 2026 20:00:00" />
 			</div>
 
 			<div className="row-span-3 col-start-3 col-span-3 w-[96.5%] h-[96%] bg-black/50 m-auto border border-purple rounded-2xl shadow-outside flex flex-col items-center py-2">
 				<p className="font-main text-xl text-purple">Special Features</p>
+				<div className="h-full w-full flex px-10 py-5">
+					<GetPDF />
+				</div>
 			</div>
 
 		</div>
