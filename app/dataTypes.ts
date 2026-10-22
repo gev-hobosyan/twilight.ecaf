@@ -48,3 +48,7 @@ export type AuthType = StripEmptyObjects<{
 } & {} & {
     activeOrganizationId?: string | null | undefined;
 }>
+
+export type APIError = {
+	message: string
+}

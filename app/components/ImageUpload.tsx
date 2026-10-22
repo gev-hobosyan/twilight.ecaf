@@ -24,8 +24,9 @@ export default function ImageUpload({ session, file, setFile, error }: Props) {
 		<div>
 			{
 				file ?
-					<div>
-						<img src={file} alt="img" className={`w-full h-40 border-dashed rounded-2xl border-3 ${error ? "border-red-500 text-red-500" : "border-purple text-purple"} transition-all`} />
+					<div className="relative">
+						<img src={file} alt="img" className={`w-85 max-h-70 mx-auto border-dashed rounded-2xl border-3 ${error ? "border-red-500 text-red-500" : "border-purple text-purple"} transition-all`} />
+						<Image src={error ? "/trash_error.svg" : "/trash.svg"} alt="trash" width={24} height={24} className="absolute top-3 right-6 cursor-pointer hover:scale-105" onClick={() => setFile(undefined)}/>
 					</div>
 				:	(
 						<div className={`min-w-full h-32 border-dashed rounded-2xl border-3 center flex-col font-main text-xs ${fileEnter ? "border-purple-400 text-purple-400": error ? "border-red-500 text-red-500" : "border-purple text-purple"}`}
