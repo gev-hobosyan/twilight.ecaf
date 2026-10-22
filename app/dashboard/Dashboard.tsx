@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { auth } from "@/lib/auth/server"
 import Blur from "../components/decor/Blur";
 import Sparkle from "../components/decor/Sparkle";
@@ -12,6 +13,7 @@ import TimeLeft from "../components/decor/TimeLeft";
 import { getProject } from "../actions/getProject";
 import { getTranslations } from "next-intl/server";
 import TheTheme from "../components/decor/TheTheme";
+import { getProgress } from "../actions/getProgress";
 
 export const dynamic = 'force-dynamic';
 
@@ -24,6 +26,7 @@ export default async function Dashboard() {
 
 	const team = await getTeam(session.user.id);
 	const project = await getProject(session.user.id);
+	const progresses = await getProgress(Number.parseInt(project?.id || "0"));
 
 	const t = await getTranslations('Dashboard');
 	
@@ -115,17 +118,30 @@ export default async function Dashboard() {
 
 			<div className="row-span-2 col-span-3 w-[90%] lg:w-[96%] h-[90%] bg-black/50 m-auto border border-purple rounded-2xl shadow-outside flex flex-col items-center justify-between py-4">
 				<p className="font-main text-2xl text-purple">{t("progress")}</p>
-				<div className="m-auto text-center max-w-70">
-					{
-						date.getDate() > 17 ? (
-							<p className="font-main">
-								Technical issues, will be fixed soon
-							</p>
-						): (
+				{
+					date.getDate() <= 17 ? (
+						<div className="m-auto text-center max-w-70">
 							<p className="font-main">{t("progress_available")}</p>
-						)
-					}
-				</div>
+						</div>
+					) : project ? (
+						<div className="w-full h-full flex overflow-y-hidden overflow-x-scroll items-center justify-start px-10 gap-4">
+							<Link href="/register-progress" className="w-40 border-dashed border border-purple h-[90%] rounded-2xl center group cursor-pointer flex-col text-center text-sm px-3">
+									<p className="group-hover:scale-130 transition-all duration-200 text-4xl">+</p>
+									<p>Tell as what you made today</p>
+							</Link>
+
+							{progresses?.map((progress) => (
+								<div className="w-40 border-2 border-purple h-[90%] rounded-2xl group cursor-pointer text-center text-sm px-3" key={progress.id}>
+									<p className="mt-2">{progress.date.split("-").join(".")}</p>
+									<img src={progress.image} alt="image" className={`w-full rounded-2xl transition-all`} />
+									<p className="progress-description w-full mt-4">{progress.description}</p>
+								</div>
+							))}
+						</div>
+					) : (
+						<p className="font-main">Please create a project to track the progress</p>
+					)
+				}
 			</div>
 
 			<div className="row-span-2 col-span-2 w-[90%] h-[90%] bg-black/50 m-auto border border-purple rounded-2xl shadow-outside flex flex-col items-center justify-between py-4">

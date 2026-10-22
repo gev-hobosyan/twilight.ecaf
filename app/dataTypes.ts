@@ -26,6 +26,14 @@ export type Project = {
 	owner?: string
 }
 
+export type Progress = {
+	id: number,
+	project_id: number,
+	date: string,
+	description: string,
+	image: string
+}
+
 export type AuthType = StripEmptyObjects<{
     id: string;
     createdAt: Date;

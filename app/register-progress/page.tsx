@@ -5,7 +5,6 @@ import ImageUpload from "../components/ImageUpload";
 import { useEffect, useState } from "react";
 import Loader from "../components/decor/Loader";
 import { authClient } from "@/lib/auth/client";
-import { redirect, RedirectType, useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import PrimaryButton from "../components/buttons/PrimaryButton";
 import { getProject } from "../actions/getProject";
@@ -62,14 +61,15 @@ export default function AddProgress() {
 
 	const action = async (formData: FormData) => {
 		setPending(true);
-		console.log(file, projectId)
+		const month = date.getMonth() + 1;
+		const dateString = `${date.getDate()}-${month < 10 ? "0" + month : month}-${date.getFullYear()}`
 
 		if (file) {
 			const res = await registerProgress(
 				formData.get("description") as string,
 				file,
 				projectId,
-				`${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`
+				`${dateString}`
 			);
 
 			console.log(res)
