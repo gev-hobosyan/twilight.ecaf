@@ -4,6 +4,7 @@ import { auth } from "@/lib/auth/server";
 import axios, { AxiosError, isAxiosError } from "axios";
 import { isRedirectError } from "next/dist/client/components/redirect-error";
 import { redirect, RedirectType } from "next/navigation";
+import { APIError } from "../dataTypes";
 
 export type FormState = 
   | { error: string; message?: never } 
@@ -49,19 +50,13 @@ export async function contactUs(
 			telegram: formData.get('tg') as string
 		});
 
-
-		if (res.status == 500) {
-			return { error: res.request["message"] }
-		}
-
 		redirect('/', RedirectType.replace)
-
-		return { message: "Ticket created" }
 	} catch (e) {
 		if (isRedirectError(e)) throw e
-		// if (isAxiosError(e)) {
 
-		// }
+		if (isAxiosError(e)) {
+			return { error: ((e as AxiosError).response?.data as APIError).message }
+		}
 		
 		return { error: 'Failed to send the message' };
 	}

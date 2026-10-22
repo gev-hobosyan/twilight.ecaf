@@ -1,8 +1,9 @@
 'use server';
 
-import axios from "axios";
+import axios, { AxiosError, isAxiosError } from "axios";
 import { isRedirectError } from "next/dist/client/components/redirect-error";
 import { redirect } from "next/navigation";
+import { APIError } from "../dataTypes";
 
 export type Response =
   | { error: string; message?: never }
@@ -21,19 +22,16 @@ export async function createTeam(
 		const res = await axios.post(`${process.env.BACKEND_BASE_URL!}team`, {
 			name,
 			members
-		});
-		
-		if (res.status == 500) {
-			return { error: res.request["message"] }
-		} else if (res.status == 201) {
-			return { message: "Team created" }
-		}
+		});		
 
 		redirect("/", "replace")
-		
-		return { message: "" }
 	} catch (e) {
 		if (isRedirectError(e)) throw e
+
+		if (isAxiosError(e)) {
+			return { error: ((e as AxiosError).response?.data as APIError).message }
+		}
+		
 		return { error: 'Failed to send the message' };
 	}
 }
