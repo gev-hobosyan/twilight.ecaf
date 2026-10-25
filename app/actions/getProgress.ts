@@ -5,7 +5,7 @@ import type { Progress } from "../dataTypes";
 
 export const getProgress = async (projectId: number) => {
 	try {
-		const res = await axios.get(`${process.env.BACKEND_BASE_URL || "http://localhost:3000/"}progress/project/${projectId}`);
+		const res = await axios.get(`${process.env.BACKEND_BASE_URL || "http://localhost:3000"}/progress/project/${projectId}`);
 
 		if (res.status === 200) {
 			return res.data as Progress[];

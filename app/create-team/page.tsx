@@ -55,7 +55,7 @@ export default function CreateTeam() {
 		setPending(true)
 
 		try {
-			const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL!}users/${name.replace(" ", "%20")}`);
+			const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL!}/users/${name.replace(" ", "%20")}`);
 
 			if (res.status == 200) {
 				setMembers(prev => {

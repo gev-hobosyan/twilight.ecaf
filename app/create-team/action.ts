@@ -19,7 +19,7 @@ export async function createTeam(
 	}
 
 	try {
-		const res = await axios.post(`${process.env.BACKEND_BASE_URL!}team`, {
+		const res = await axios.post(`${process.env.BACKEND_BASE_URL!}/team`, {
 			name,
 			members
 		});		

@@ -31,7 +31,7 @@ export async function contactUs(
 				return { error: "Email or telegram are required" };	
 			} 
 
-			const res = await axios.post(`${process.env.BACKEND_BASE_URL!}support/anonymous`, {
+			const res = await axios.post(`${process.env.BACKEND_BASE_URL!}/support/anonymous`, {
 				message: message,
 				email: email,
 				telegram: tg
@@ -44,7 +44,7 @@ export async function contactUs(
 			return { message: "Ticket created" }
 		}
 		
-		const res = await axios.post(`${process.env.BACKEND_BASE_URL!}support`, {
+		const res = await axios.post(`${process.env.BACKEND_BASE_URL!}/support`, {
 			message: message,
 			user: session.user.id,
 			telegram: formData.get('tg') as string

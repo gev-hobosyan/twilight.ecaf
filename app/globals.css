@@ -46,6 +46,8 @@
   --shadow-inset: var(--inset-shadow);
   --shadow-outside: var(--outside-shadow);
   --shadow-error: var(--shadow-error);
+
+  --animate-fade: fade 1s ease-in-out forwards;
 }
 
 .center {
@@ -85,6 +87,42 @@
 @keyframes load {
 	100% {
 		transform: rotate(1turn);
+	}
+}
+
+@keyframes win-1 {
+ 	0% {
+ 		height: 0px;
+  	}
+  	100% {
+ 		height: 240px;
+  	}
+}
+
+@keyframes win-2 {
+ 	0% {
+ 		height: 0px;
+  	}
+  	100% {
+ 		height: 180px;
+  	}
+}
+
+@keyframes win-3 {
+ 	0% {
+ 		height: 0px;
+  	}
+  	100% {
+ 		height: 120px;
+  	}
+}
+
+@keyframes fade {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
 	}
 }
 

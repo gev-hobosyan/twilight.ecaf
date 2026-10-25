@@ -17,7 +17,7 @@ export default function GetPDF() {
 			const apiKey = await getAdminKey();
 
 			console.log(apiKey)
-			const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL!}admin/pdf`, {
+			const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL!}/admin/pdf`, {
 				responseType: "blob",
 				headers: { "Accept": "application/pdf", "x-api-key": apiKey }
 			})

@@ -17,7 +17,7 @@ export async function registerProgress(
 	date: string
 ): Promise<Response> {
 	try {
-		const res = await axios.post(`${process.env.BACKEND_BASE_URL!}progress`, {
+		const res = await axios.post(`${process.env.BACKEND_BASE_URL!}/progress`, {
 			description,
 			image,
 			projectId,

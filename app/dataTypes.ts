@@ -16,7 +16,7 @@ export type User = {
 }
 
 export type Project = {
-	id: string, 
+	id: number, 
 	name: string,
 	description: string
 	story: string,

@@ -15,7 +15,7 @@ export async function createProject(
 	owner: string | undefined
 ): Promise<Response> {
 	try {
-		const res = await axios.post(`${process.env.BACKEND_BASE_URL!}project`, {
+		const res = await axios.post(`${process.env.BACKEND_BASE_URL!}/project`, {
 			name,
 			description: "",
 			story: "",

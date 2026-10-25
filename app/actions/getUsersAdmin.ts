@@ -21,7 +21,7 @@ export const getUsersAdmin = async (role: string | null | undefined) => {
 			}
 		}
 		
-		const res = await axios.get(`${process.env.BACKEND_BASE_URL || "http://localhost:3000/"}admin/users`, {
+		const res = await axios.get(`${process.env.BACKEND_BASE_URL || "http://localhost:3000"}/admin/users`, {
 			headers: {
 				"x-api-key": apiKey
 			}

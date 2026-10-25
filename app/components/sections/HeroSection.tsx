@@ -4,9 +4,7 @@ import Image from "next/image";
 import PrimaryButton from "@/app/components/buttons/PrimaryButton";
 import Blur from "@/app/components/decor/Blur";
 import Sparkle from "@/app/components/decor/Sparkle";
-import LangSwitch from "../buttons/LangSwitch";
-import { Locale, useTranslations } from "next-intl";
-import { cookies } from "next/headers";
+import {useTranslations } from "next-intl";
 import Link from "next/link";
 import SecondaryButton from "../buttons/SecondaryButton";
 

@@ -21,7 +21,7 @@ export const getTeamsAdmin = async (role: string | null | undefined) => {
 			}
 		}
 		
-		const res = await axios.get(`${process.env.BACKEND_BASE_URL || "http://localhost:3000/"}admin/teams`, {
+		const res = await axios.get(`${process.env.BACKEND_BASE_URL || "http://localhost:3000"}/admin/teams`, {
 			headers: {
 				"x-api-key": apiKey
 			}
