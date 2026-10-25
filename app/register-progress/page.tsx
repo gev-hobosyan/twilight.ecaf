@@ -31,7 +31,7 @@ export default function AddProgress() {
 	const [session, setSession] = useState<AuthType>();
 	const [loading, setLoading] = useState(true);
 	const [pending, setPending] = useState(false);
-	const [projectId, setProjectId] = useState<string>()
+	const [projectId, setProjectId] = useState<number>()
 	const [status, setStatus] = useState({
 		status: "none",
 		message: ""

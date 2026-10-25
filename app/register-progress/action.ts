@@ -13,7 +13,7 @@ export type Response =
 export async function registerProgress(
 	description: string,
 	image: string,
-	projectId: string,
+	projectId: number,
 	date: string
 ): Promise<Response> {
 	try {

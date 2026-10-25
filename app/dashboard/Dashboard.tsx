@@ -26,7 +26,7 @@ export default async function Dashboard() {
 
 	const team = await getTeam(session.user.id);
 	const project = await getProject(session.user.id);
-	const progresses = await getProgress(Number.parseInt(project?.id || "0"));
+	const progresses = await getProgress(project?.id || 0);
 
 	const t = await getTranslations('Dashboard');
 	
