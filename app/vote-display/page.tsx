@@ -135,12 +135,12 @@ export default function VoteDisplay() {
 					<div className="w-full h-full center flex-col gap-3">
 						{
 							projects.map(project => (
-							<div className="w-120 h-20 bg-light-dark rounded-2xl border border-purple" key={project.id}>
-								<div className="flex justify-between px-4 py-1 items-center h-full">
-									<p className="font-main text-lg">{project.name}</p>
-									<p className="text-light-purple">{project.techStack}</p>
+								<div className="w-120 h-20 bg-light-dark rounded-2xl border border-purple" key={project.id}>
+									<div className="flex justify-between px-4 py-1 items-center h-full">
+										<p className="font-main text-lg">{project.name}</p>
+										<p className="text-light-purple">{project.techStack}</p>
+									</div>
 								</div>
-							</div>
 							))
 						}
 					</div>
