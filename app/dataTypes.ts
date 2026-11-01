@@ -23,7 +23,8 @@ export type Project = {
 	useAI: boolean,
 	techStack: string,
 	notes?: string,
-	owner?: string
+	owner?: string,
+	submitted: boolean
 }
 
 export type Progress = {

@@ -29,10 +29,10 @@ export default async function Dashboard() {
 	const progresses = await getProgress(project?.id || 0);
 
 	const t = await getTranslations('Dashboard');
-	
+
 	await connection();
 	const date = new Date();
-	
+
 	return (
 		<div className="w-screen h-screen flex flex-col max-lg:gap-10 lg:grid lg:grid-cols-5 lg:grid-rows-5 relative overflow-x-hidden lg:overflow-hidden max-lg:py-15">
 			<Blur top="10%" left="2%"></Blur>
@@ -92,15 +92,33 @@ export default async function Dashboard() {
 				<div className="m-auto text-center max-w-70">
 					{
 						project ? (
-							<div className="h-full w-full">
-								<p className="font-main">{project.name}</p>
-								<div className="my-5">
-									<TimeLeft date="November 1, 2026 20:00:00" text={t("ends")} />
+							project.submitted ? (
+								<div className="h-full w-full">
+									<p className="font-main">{project.name}</p>
+									<p className="font-main">{t("submitted")}</p>
 								</div>
-								<Link href="/">
-									<PrimaryButton>{t("submit")}</PrimaryButton>
-								</Link>
-							</div>
+							)
+							: (<div className="h-full w-full">
+								<p className="font-main text-xl">{project.name}</p>
+								{
+									date.getHours() <= 11 ? (
+										<>
+											<div className="my-5">
+												<TimeLeft date="November 1, 2026 20:00:00" text={t("ends")} />
+											</div>
+											<Link href="/submit">
+												<PrimaryButton>{t("submit")}</PrimaryButton>
+											</Link>
+										</>
+									) : (
+										<>
+											<div className="my-5">
+												<p className="text-lg font-main">The time is up</p>
+											</div>
+										</>
+									)
+								}
+							</div>)
 						) : (
 							<>
 								<p>{t("time_has_come")}</p>
@@ -119,7 +137,7 @@ export default async function Dashboard() {
 			<div className="row-span-2 col-span-3 w-[90%] lg:w-[96%] h-[90%] bg-black/50 m-auto border border-purple rounded-2xl shadow-outside flex flex-col items-center justify-between py-4">
 				<p className="font-main text-2xl text-purple">{t("progress")}</p>
 				{
-					date.getDate() <= 17 ? (
+					!date.getDate() ? (
 						<div className="m-auto text-center max-w-70">
 							<p className="font-main">{t("progress_available")}</p>
 						</div>

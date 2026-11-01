@@ -10,7 +10,7 @@ export default function TheTheme() {
 	return (
 		<div className="my-auto w-full center flex-col">
 			{
-				(date.getDate() >= 18) 
+				(date.getDate()) 
 					? (<>
 						<p>{t("theme")}</p>
 						<p className="max-w-40 text-center text-xs">{t("start")}</p>

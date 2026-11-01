@@ -115,7 +115,8 @@
 		"progress_available": "Project progress will be available after the theme is revealed",
 		"contact_devs": "Contact the devs",
 		"ask": "Ask us any questions here",
-		"contact": "Contact us"
+		"contact": "Contact us",
+		"submitted": "Thanks for submitting your project"
 	},
 	"Theme": {
 		"theme": "Deep dive into mythology",
@@ -132,5 +133,24 @@
 		"click": "Click to upload",
 		"or": "OR",
 		"drop": "Drop the image here"
+	},
+	"FileUpload": {
+		"click": "Click to upload",
+		"or": "OR",
+		"drop": "Drop the zip file here"
+	},
+	"Submit": {
+		"submit_project": "Submit your project",
+		"time": "It's time to see what you made",
+		"description": "Description",
+		"tell_us": "Tell us what you made",
+		"story": "Story",
+		"story_more": "What inspired you to make this project? What problems you had? What did you learn?",
+		"tech_stack": "Tech Stack",
+		"notes": "Notes (optional)",
+		"notes_more": "Do you have anything else to say?",
+		"useAI": "Did you use AI?",
+		"submit": "Submit",
+		"github": "Github (optional)"
 	}
 }
