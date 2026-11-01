@@ -101,22 +101,14 @@ export default async function Dashboard() {
 							: (<div className="h-full w-full">
 								<p className="font-main text-xl">{project.name}</p>
 								{
-									date.getHours() <= 11 ? (
-										<>
-											<div className="my-5">
-												<TimeLeft date="November 1, 2026 20:00:00" text={t("ends")} />
-											</div>
-											<Link href="/submit">
-												<PrimaryButton>{t("submit")}</PrimaryButton>
-											</Link>
-										</>
-									) : (
-										<>
-											<div className="my-5">
-												<p className="text-lg font-main">The time is up</p>
-											</div>
-										</>
-									)
+									<>
+										<div className="my-5">
+											<TimeLeft date="November 1, 2026 20:00:00" text={t("ends")} />
+										</div>
+										<Link href="/submit">
+											<PrimaryButton>{t("submit")}</PrimaryButton>
+										</Link>
+									</>
 								}
 							</div>)
 						) : (
