@@ -17,15 +17,19 @@ This website is the platform used during the event by the participants to submit
 
 ## Why I built it?
 
----
-
 I developed the platform from the ground up so participants had one place to submit work, and organizers could stop juggling spreadsheets and chat threads. Designed to be fast, simple, and reliable for the event.
 
 ---
 
-## Tech Stack
+## Prerequisites
+
+- Node.js 18+ or Bun
+- A Neon account for the database, auth, and storage
+- The [backend](https://github.com/gev-hobosyan/twilight.ecaf.backend) running locally or deployed
 
 ---
+
+## Tech Stack
 
 | Layer | Technology |
 |----------|----------|
@@ -39,8 +43,6 @@ I developed the platform from the ground up so participants had one place to sub
 
 ## Features
 
----
-
 - **PDF generation**: A pdf containing all the projects and participants
 - **Telegram bot**: A ticket system implemented using a telegram bot
 - **Voting system**: Real time voting system
@@ -48,8 +50,6 @@ I developed the platform from the ground up so participants had one place to sub
 ---
 
 ## Getting started
-
----
 
 First install all the dependencies
 
