@@ -15,6 +15,14 @@ This website is the platform used during the event by the participants to submit
 
 ---
 
+## Why I built it?
+
+---
+
+I developed the platform from the ground up so participants had one place to submit work, and organizers could stop juggling spreadsheets and chat threads. Designed to be fast, simple, and reliable for the event.
+
+---
+
 ## Tech Stack
 
 ---
@@ -29,7 +37,17 @@ This website is the platform used during the event by the participants to submit
 
 ---
 
-## Installation
+## Features
+
+---
+
+- **PDF generation**: A pdf containing all the projects and participants
+- **Telegram bot**: A ticket system implemented using a telegram bot
+- **Voting system**: Real time voting system
+
+---
+
+## Getting started
 
 ---
 
