@@ -45,7 +45,7 @@ I developed the platform from the ground up so participants had one place to sub
 
 - **PDF generation**: A pdf containing all the projects and participants, ready to print and use during the event
 - **Telegram bot**: A ticket system implemented using a telegram bot
-- **Voting system**: Real time voting system
+- **Voting system**: Real-time voting powered by WebSockets, with live result updates
 
 ---
 
