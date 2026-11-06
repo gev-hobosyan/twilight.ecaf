@@ -43,7 +43,7 @@ I developed the platform from the ground up so participants had one place to sub
 
 ## Features
 
-- **PDF generation**: A pdf containing all the projects and participants
+- **PDF generation**: A pdf containing all the projects and participants, ready to print and use during the event
 - **Telegram bot**: A ticket system implemented using a telegram bot
 - **Voting system**: Real time voting system
 
